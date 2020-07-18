@@ -19,6 +19,16 @@ Go to module settings and set fonts you want to use. If all went well you should
 
 _Requires connection to Internet._
 
+### Journal Entries?
+Yes, you can use loaded fonts in Journal Entries. You need to open the HTML source edit and add `style` attribute to either `p` or `span` element you want to change font to.
+
+Example: 
+```html
+<p style="font-family: 'Grenze Gotisch', Signika, sans-serif;">
+```
+
+I do suggest always placing `, Signika, sans-serif` behind font family as a fallback just in case. If font family includes spaces, surround it with single quote.
+
 ### Font loading issues:
 
 #### I got no notification / Console shows 404 error
