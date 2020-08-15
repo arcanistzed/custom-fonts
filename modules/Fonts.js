@@ -25,16 +25,14 @@ export default class Fonts {
     fontEl.attr('rel', `stylesheet`);
     fontEl.attr('type', `text/css`);
     fontEl.attr('media', `all`);
-    if (canvas) {
-      fontEl.on('load', () => {
-        this.drawDrawings();
-        if (options.settings) {
-          ui.notifications.info(game.i18n.localize('ForienCustomFonts.Notifications.FontAdded'), {permanent: true});
-        }
-      });
-    }
     fontEl.attr('href', `https://fonts.googleapis.com/css2?${fonts}&display=swap`);
     $('head').append(fontEl);
+    fontEl.on('load', () => {
+      setTimeout(() => this.drawDrawings(), 5000);
+      if (options.settings) {
+        ui.notifications.info(game.i18n.localize('ForienCustomFonts.Notifications.FontAdded'), {permanent: true});
+      }
+    });
   }
 
   static drawDrawings() {
