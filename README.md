@@ -67,6 +67,7 @@ If you wish to contact me for any reason, reach me out on Discord using my tag: 
 ## Acknowledgments
 
 * _Grenze Gotisch_, _Lobster_ and _Indie Flower_ are fonts available on [Google Fonts](https://fonts.google.com/) via [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+* Thanks to KrishMero for helping with fonts not loading issue
 
 ## Support
 

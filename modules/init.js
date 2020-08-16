@@ -16,8 +16,16 @@ Hooks.once('setup', () => {
 
 Hooks.once("ready", () => {
 
-  Fonts.drawDrawings();
   Hooks.callAll(`${constants.moduleName}:afterReady`);
 });
 
+Hooks.once("canvasReady", () => {
+
+  setTimeout(Fonts.drawDrawings, 2000);
+  Hooks.callAll(`${constants.moduleName}:afterCanvasReady`);
+});
+
+Hooks.on("updateDrawing", (scene, drawing, update, options, user) => {
+  if (update.fontFamily) setTimeout(Fonts.drawDrawings, 2000);
+});
 
