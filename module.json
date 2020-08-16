@@ -30,6 +30,9 @@
       "path": "lang/pl.json"
     }
   ],
+  "scripts": [
+    "./scripts/prompt.js"
+  ],
   "esmodules": [
     "./modules/init.js"
   ],
