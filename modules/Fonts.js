@@ -38,6 +38,6 @@ export default class Fonts {
   }
 
   static drawDrawings() {
-    canvas.drawings.placeables.filter(d => d.data.type === 't').forEach(d => d.draw());
+    canvas?.drawings?.placeables.filter(d => d.data.type === 't').forEach(d => d.draw());
   }
 }

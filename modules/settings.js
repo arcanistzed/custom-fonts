@@ -12,13 +12,4 @@ export default function registerSettings() {
     type: String,
     onChange: () => Fonts.render({settings: true})
   });
-
-  game.settings.register(constants.moduleName, "playersWelcomeScreen", {
-    name: "ForienCustomFonts.Settings.playersWelcomeScreen.Enable",
-    hint: "ForienCustomFonts.Settings.playersWelcomeScreen.EnableHint",
-    scope: "world",
-    config: true,
-    default: true,
-    type: Boolean
-  });
 }
