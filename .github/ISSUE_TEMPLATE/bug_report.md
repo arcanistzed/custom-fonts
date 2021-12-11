@@ -1,19 +1,18 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Create a report to help improve the module
 title: "[BUG]"
 labels: bug
-assignees: ''
+assignees: arcanistzed
 
 ---
-
-**Module Version:** v0.0.0
 
 **Describe the bug**
 A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
@@ -25,12 +24,9 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Browser:**
- - 
-
-**Foundry Version:** 
-
-**Game System:** 
+**Details**
+Foundry VTT version:
+Module version:
 
 **Additional context**
-Add any other context (like other modules installed) about the problem here.
+Add any other context about the problem here.
