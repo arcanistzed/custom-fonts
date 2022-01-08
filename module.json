@@ -1,7 +1,7 @@
 {
   "name": "custom-fonts",
   "title": "Custom Fonts",
-  "description": " ",
+  "description": "Facilitates using Custom Fonts in Journal Entries, Text Drawings on the canvas, or for the entire UI! You can upload your own font or load a font directly from Google Fonts.",
   "version": "This is auto replaced",
   "manifestPlusVersion": "1.2.0",
   "minimumCoreVersion": "0.7.9",
@@ -16,11 +16,11 @@
       "reddit": "u/arcanistzed"
     }
   ],
-  "scripts": [
-    "scripts/module.js"
+  "esmodules": [
+    "scripts/custom-fonts.js"
   ],
   "styles": [
-    "styles/module.css"
+    "styles/custom-fonts.css"
   ],
   "languages": [
     {
@@ -31,13 +31,14 @@
     {
       "lang": "pl",
       "name": "Polski",
-      "path": "lang/pl.json"
+      "path": "languages/pl.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "languages/fr.json"
     }
   ],
-  "keywords": [
-    ""
-  ],
-  "dependencies": [],
   "url": "This is auto replaced",
   "manifest": "This is auto replaced",
   "download": "This is auto replaced",
@@ -45,5 +46,11 @@
   "changelog": "https://github.com/arcanistzed/custom-fonts/blob/main/CHANGELOG.md",
   "license": "https://github.com/arcanistzed/custom-fonts/blob/main/LICENSE",
   "bugs": "https://github.com/arcanistzed/custom-fonts/issues/new/choose",
-  "media": []
+  "media": [
+    {
+      "type": "screenshot",
+      "url": "https://cdn.discordapp.com/attachments/927033716885307462/927714077889945660/open-dyslexic.png",
+      "caption": "Using Custom Fonts with Open Dyslexic which is uploaded by the user"
+    }
+  ]
 }
