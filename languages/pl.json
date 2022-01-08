@@ -1,13 +1,13 @@
 {
-  "custom-fonts": {
-    "notifications": {
-      "fontAdded": "Załadowano nowe Fonty. Jeśli rysunek nie wyświetla nowego fonta, spróbuj rysunek przesunąć, albo zmień scenę na inną i z powrotem."
-    },
-    "settings": {
-      "fonts": {
-        "name": "Rodziny fontów",
-        "hint": "Podaj nazwy rodzin fontów z Google Fonts, oddzielając kolejne przecinkiem (,)."
-      }
+    "custom-fonts": {
+        "notifications": {
+            "fontAdded": "Załadowano nowe Fonty. Jeśli rysunek nie wyświetla nowego fonta, spróbuj rysunek przesunąć, albo zmień scenę na inną i z powrotem."
+        },
+        "settings": {
+            "fonts": {
+                "name": "Rodziny fontów",
+                "hint": "Podaj nazwy rodzin fontów z Google Fonts, oddzielając kolejne przecinkiem (,)."
+            }
+        }
     }
-  }
 }

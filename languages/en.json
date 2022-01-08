@@ -1,13 +1,27 @@
 {
-  "custom-fonts": {
-    "notifications": {
-      "fontAdded": "Font has been loaded. If newly created drawing doesn't display it, try moving it, or changing to other scene and back."
-    },
-    "settings": {
-      "fonts": {
-        "name": "Font families",
-        "hint": "Provide font families from Google Fonts, separated with comma (,)."
-      }
+    "custom-fonts": {
+        "notifications": {
+            "fontAdded": "Font has been loaded. If newly created drawing doesn't display it, try moving it, or changing to other scene and back.",
+            "connectionError": "Fonts from Google Fonts cannot be loaded since there is an issue with the network connection: {error}",
+            "invalidDirectory": "The configuration for the font directory is currently invalid and fonts could not be loaded: {error}"
+        },
+        "settings": {
+            "fonts": {
+                "name": "Font families",
+                "hint": "Provide font families from Google Fonts, separated with comma (,)."
+            },
+            "directory": {
+                "name": "Upload fonts",
+                "hint": "Directory to load fonts from. Any .otf, .ttf, .woff, or .woff2 files in this directory will be loaded."
+            },
+            "primary": {
+                "name": "Primary font",
+                "hint": "Enter the name of a font which will be used for all major user interface text."
+            },
+            "mono": {
+                "name": "Monospace font",
+                "hint": "Enter the name of a font which will be used as the monospace font. By default you'll see this font in text areas such as the chat form or macro editor among other places."
+            }
+        }
     }
-  }
 }

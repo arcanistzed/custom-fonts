@@ -1,0 +1,27 @@
+{
+    "custom-fonts": {
+        "notifications": {
+            "fontAdded": "La police a été ajouté. Si des dessins nouvellemment créer ne l'affichent pas, essaie de bougé le dessin ou de changé de scène.",
+            "connectionError": "Les polices Google Fonts ne peuvent pas être téléchargez car il y un problème avec la connection au réseau: {error}",
+            "invalidDirectory": "La configuration de le fichier pour les polices est couramment invalide, donc ils n'ont pas pu être téléchargez: {error}"
+        },
+        "settings": {
+            "fonts": {
+                "name": "Familles de Polices",
+                "hint": "Écrire une list de familles de police disponible sur Google Fonts, separé par des virgules (,)."
+            },
+            "directory": {
+                "name": "Téléchargement de polices",
+                "hint": "Répertoire à partir duquel acquérir des polices. Tout fichier de formats .otf, .ttf, .woff, ou .woff2 dans cet emplacement sera téléchargé."
+            },
+            "primary": {
+                "name": "Police Principale",
+                "hint": "Entrez le nom de la police que vous voulez utiliser pour tout text primaire de l'interface utilisateur."
+            },
+            "mono": {
+                "name": "Police à espacement fixe",
+                "hint": "Entrez le nom de la police que vous voulez utiliser pour tout texte à espacement fixe de l'interface utilisateur. Par défaut, vous verrez cette police dans les zones de texte tels que le formulaire de chat ou l'éditeur de macros."
+            }
+        }
+    }
+}
