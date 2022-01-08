@@ -14,7 +14,7 @@ In the setup screen, use the URL `https://github.com/arcanistzed/custom-fonts/re
 
 Go to module settings and set the font families you want to use.
 
-*Google Fonts requires connection to Internet.*
+Using fonts from Google Fonts requires connection to Internet. You cannot load more than 100 fonts from Google Fonts. You also cannot load from more than 50 folders in your local fonts directory.
 
 ### Font loading issues
 
