@@ -47,7 +47,7 @@ export default class CustomFonts {
 
     // Get the fonts from the settings
     const fontFamilies = game.settings.get(CustomFonts.ID, "fonts")
-      .split(",").map(val => val.trim()).filter(f => f.length);
+      .split(",", 100).map(val => val.trim()).filter(f => f.length);
 
     // Construct the URL for the Google Fonts API
     if (fontFamilies.length) {
