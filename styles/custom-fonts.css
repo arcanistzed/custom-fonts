@@ -1,0 +1,15 @@
+select {
+    font-family: inherit;
+}
+
+#chat-controls .control-buttons {
+    display: flex;
+}
+
+#context-menu {
+    min-width: max-content;
+}
+
+#game-details .version {
+    overflow: hidden;
+}
