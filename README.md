@@ -1,77 +1,35 @@
 # Custom Fonts
 
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/forien/foundryvtt-forien-custom-fonts?style=for-the-badge)
-![GitHub Releases](https://img.shields.io/github/downloads/Forien/foundryvtt-forien-custom-fonts/latest/total?style=for-the-badge)
-![GitHub All Releases](https://img.shields.io/github/downloads/Forien/foundryvtt-forien-custom-fonts/total?style=for-the-badge&label=Downloads+total)  
-**[Compatibility]**: *FoundryVTT* 0.6.0+  
-**[Systems]**: *any*  
-**[Languages]**: *English, Polish*  
+![Version](https://img.shields.io/github/v/tag/arcanistzed/custom-fonts?label=Version&style=flat-square&color=2577a1) ![Latest Release Download Count](https://img.shields.io/github/downloads/arcanistzed/custom-fonts/latest/module.zip?label=Downloads&style=flat-square&color=9b43a8) ![Supported Foundry Versions](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https://raw.githubusercontent.com/arcanistzed/custom-fonts/main/module.json&style=flat-square&color=ff6400) [![Discord Server](https://img.shields.io/badge/-Discord-%232c2f33?style=flat-square&logo=discord)](https://discord.gg/AAkZWWqVav) [![Patreon](https://img.shields.io/badge/-Patreon-%23141518?style=flat-square&logo=patreon)](https://www.patreon.com/bePatron?u=15896855)
 
-This module allows to load any font from Google Fonts to use in drawings in games played via Foundry Virtual Tabletop.
+Facilitates using Custom Fonts in Journal Entries, Text Drawings on the canvas, or for the entire UI! You can upload your own font or load a font directly from Google Fonts.
+
+![fonts](https://i.gyazo.com/32fe907375b3993d05a204b4f521aac5.png)
 
 ## Installation
 
-1. Install Custom Fonts using manifest URL: `https://raw.githubusercontent.com/Forien/foundryvtt-forien-custom-fonts/master/module.json`
-2. While loaded in World, enable ***Custom Fonts*** module.
+In the setup screen, use the URL `https://github.com/arcanistzed/custom-fonts/releases/latest/download/module.json` to install the module.
 
 ## Usage
 
-Go to module settings and set fonts you want to use. If all went well you should get notification.
+Go to module settings and set the font families you want to use.
 
-*Requires connection to Internet.*
-
-### Journal Entries?
-
-Yes, you can use loaded fonts in Journal Entries. You need to open the HTML source edit and add `style` attribute to either `p` or `span` element you want to change font to.
-
-Example:
-
-```html
-<p style="font-family: 'Grenze Gotisch', Signika, sans-serif;">
-```
-
-I do suggest always placing `, Signika, sans-serif` behind font family as a fallback just in case. If font family includes spaces, surround it with single quote.
+*Google Fonts requires connection to Internet.*
 
 ### Font loading issues
 
-#### I got no notification / Console shows 404 error
+Check that you have spelled the font exactly the same as on Google Fonts or as the name of the file in your fonts folder.
 
-You probably mispelled some font and Google Fonts returns error. Check your definitions.
-
-#### Drawings don't display new font
-
-Depending on various circumstances, new fonts might take some time to load. If new drawings don't display using new fonts (when set), try moving scenes, or use this `script` macro:
+If your drawings don't update, run the following in a script macro or the browser console (F12):
 
 ```js
 canvas.drawings.placeables.filter(d => d.data.type === 't').forEach(d => d.draw());
 ```
 
-## Screenshots
-
-![fonts](https://i.gyazo.com/32fe907375b3993d05a204b4f521aac5.png)
-
-## Future plans
-
-* Search fonts
-* Better UX and optimized loading
-* Downloading fonts for offline use?
-
-You can **always** check current and up-to-date [planned and requested features here](https://github.com/Forien/foundryvtt-forien-custom-fonts/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement)
-
-*If you have **any** suggestion or idea on new contents, hit me up on Discord!*
-
-## Translations
-
-If you are interested in translating my module, simply make a new Pull Request with your changes, or contact me on Discord.
-
-## Contact
-
-If you wish to contact me for any reason, reach me out on Discord using my tag: `Forien#2130`
-
 ## Acknowledgments
 
+* Thanks to Forien for originally creating this amazing module
 * *Grenze Gotisch*, *Lobster* and *Indie Flower* are fonts available on [Google Fonts](https://fonts.google.com/) via [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
-* Thanks to KrishMero for helping with fonts not loading issue
 
 ## Support
 
@@ -79,6 +37,16 @@ If you wish to support module development, please consider [becoming Patron](htt
 
 ## License
 
-Forien's Custom Fonts is a module for Foundry VTT by Forien and is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+Copyright © 2021 arcanist
 
-This work is licensed under Foundry Virtual Tabletop [EULA - Limited License Agreement for module development from May 29, 2020](https://foundryvtt.com/article/license/).
+[Forien's Custom Fonts](https://github.com/Forien/foundryvtt-forien-custom-fonts) is a module for Foundry VTT by [Forien](https://www.patreon.com/forien) and is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
+All changes to the original module are licensed under the [MIT license](LICENSE) and the [Foundry Virtual Tabletop Limited License Agreement for module development](https://foundryvtt.com/article/license/). A detailed comparison can be found in [the commit history](https://github.com/arcanistzed/custom-fonts/compare/36b76f1cdd679c8b72519d03435b2a29013d5e84...main).
+
+## Bugs
+
+You can submit bugs via [Github Issues](https://github.com/arcanistzed/custom-fonts/issues/new/choose) or on [my Discord server](https://discord.gg/AAkZWWqVav).
+
+## Contact me
+
+Come hang out on my [my Discord server](https://discord.gg/AAkZWWqVav) or [click here to send me an email](mailto:arcanistzed@gmail.com?subject=custom-fonts%20module%20for%20Foundry%20VTT).
