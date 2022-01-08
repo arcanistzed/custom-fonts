@@ -6,10 +6,6 @@ Facilitates using Custom Fonts in Journal Entries, Text Drawings on the canvas, 
 
 ![fonts](https://i.gyazo.com/32fe907375b3993d05a204b4f521aac5.png)
 
-## Installation
-
-In the setup screen, use the URL `https://github.com/arcanistzed/custom-fonts/releases/latest/download/module.json` to install the module.
-
 ## Usage
 
 Go to module settings and set the font families you want to use.
@@ -26,14 +22,14 @@ If your drawings don't update, run the following in a script macro or the browse
 canvas.drawings.placeables.filter(d => d.data.type === 't').forEach(d => d.draw());
 ```
 
+## Installation
+
+In the setup screen, use the URL `https://github.com/arcanistzed/custom-fonts/releases/latest/download/module.json` to install the module.
+
 ## Acknowledgments
 
 * Thanks to Forien for originally creating this amazing module
 * *Grenze Gotisch*, *Lobster* and *Indie Flower* are fonts available on [Google Fonts](https://fonts.google.com/) via [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
-
-## Support
-
-If you wish to support module development, please consider [becoming Patron](https://www.patreon.com/foundryworkshop) or donating [through Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6P2RRX7HVEMV2&source=url). Thanks!
 
 ## License
 
