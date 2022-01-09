@@ -15,29 +15,19 @@ export default class CustomFonts {
   /** The module's ID */
   static ID = "custom-fonts";
 
-  /** List all loaded fonts
-   * Taken from https://stackoverflow.com/a/62399430
+  /** List all loaded and available fonts
    * @return {Array<string>} An array of all loaded fonts (excluding Font Awesome fonts)
    */
   list() {
-    let { fonts } = document;
-    const it = fonts.entries();
-
-    let arr = [];
-    let done = false;
-
-    while (!done) {
-      const font = it.next();
-      if (!font.done) {
-        arr.push(font.value[0].family);
-      } else {
-        done = font.done;
-      };
-    };
-
-    // converted to set then arr to filter repetitive values
-    return [...new Set(arr)].filter(f => !f.startsWith("Font Awesome"));
-  };
+    // Get the document font faces
+    const fontFaces = [...document.fonts];
+    // Get the family of each font face
+    const fontFaceFamilies = fontFaces.map(f => f.family);
+    // Get an array of font families without duplicates
+    const fontFamilies = [...new Set(fontFaceFamilies)];
+    // Return the fonts without the Font Awesome fonts
+    return fontFamilies.filter(f => !f.includes("Font Awesome"));
+  }
 
   /** Generate the CSS for loading all of the fonts
    * @return {Promise<string>} The CSS for loading the fonts
