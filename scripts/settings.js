@@ -38,4 +38,4 @@ export default function registerSettings() {
         type: String,
         onChange: () => new CustomFonts(),
     });
-};
+}

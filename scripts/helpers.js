@@ -10,6 +10,6 @@ export async function recursiveFileBrowse(directory, l = 0) {
     for (const dir of res.dirs) {
         files.push(...await recursiveFileBrowse(dir, l));
         l++;
-    };
+    }
     return files;
-};
+}

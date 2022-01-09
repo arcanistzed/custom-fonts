@@ -10,7 +10,7 @@ export default class CustomFonts {
       await this.tinyMCE();
       this.applyUIFonts();
     })();
-  };
+  }
 
   /** The module's ID */
   static ID = "custom-fonts";
@@ -53,7 +53,7 @@ export default class CustomFonts {
         .catch(err => {
           Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`));
         });
-    };
+    }
 
     // Try to get the list of files in the directory
     let files = [];
@@ -64,16 +64,17 @@ export default class CustomFonts {
       files = await recursiveFileBrowse(directory);
     } catch (err) {
       Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
-    };
+    }
+
     // Add each file to the CSS
     for (const file of files) {
       css += `\n@font-face {
   font-family: '${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/, "")}';
   src: url(${file});
 }`;
-      };
+    }
     return css;
-  };
+  }
 
   /** Add the fonts to the CONFIG */
   async config() {
@@ -84,7 +85,7 @@ export default class CustomFonts {
 
     // Redraw text drawings when the canvas is ready
     Hooks.on("canvasReady", () => canvas.drawings?.placeables.filter(d => d.data.type === 't').forEach(d => d.draw()));
-  };
+  }
 
   /** Add the fonts to the DOM */
   async dom() {
@@ -100,7 +101,7 @@ export default class CustomFonts {
 
     // Add the style element to the document head
     document.head.appendChild(element);
-  };
+  }
 
   /** Add the fonts to TinyMCE editors */
   async tinyMCE() {
@@ -112,7 +113,7 @@ export default class CustomFonts {
 
     // Add the fonts to the TinyMCE content style CSS or define it if it doesn't exist
     CONFIG.TinyMCE.content_style = CONFIG.TinyMCE.content_style ? CONFIG.TinyMCE.content_style + await this.generateCSS() : await this.generateCSS();
-  };
+  }
 
   /** Apply the fonts to the CSS variables which control the font of the entire UI */
   applyUIFonts() {
@@ -120,8 +121,8 @@ export default class CustomFonts {
     document.querySelector(":root").style.setProperty("--font-primary", primary);
     const mono = game.settings.get(CustomFonts.ID, "mono");
     document.querySelector(":root").style.setProperty("--font-mono", mono);
-  };
-};
+  }
+}
 
 // Add the module's API
 Hooks.on("init", () => game.modules.get("custom-fonts").api = new CustomFonts());
