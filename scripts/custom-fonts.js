@@ -107,4 +107,4 @@ export default class CustomFonts {
   };
 };
 
-Hooks.on("init", () => globalThis.CustomFonts = new CustomFonts());
+Hooks.on("init", () => game.modules.get("custom-fonts").api = new CustomFonts());
