@@ -15,14 +15,14 @@
     "reason": "Superseded by the new Custom Fonts module",
     "alternatives": [
       {
-        "name": "Custom Fonts",
+        "name": "custom-fonts",
         "manifest": "https://github.com/arcanistzed/custom-fonts/releases/latest/download/module.json"
       }
     ]
   },
   "dependencies": [
     {
-      "name": "Custom Fonts",
+      "name": "custom-fonts",
       "manifest": "https://github.com/arcanistzed/custom-fonts/releases/latest/download/module.json",
       "type": "module"
     }
