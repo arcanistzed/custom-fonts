@@ -53,20 +53,20 @@ export default class CustomFonts {
         });
     };
 
-      // Get the custom directory from settings
+    let files = [];
     try {
+      // Get the custom directory from settings
       const directory = game.settings.get(CustomFonts.ID, "directory");
-      const files = await recursiveFileBrowse(directory);
+      files = await recursiveFileBrowse(directory);
+    } catch (err) {
+      Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
+    };
     for (const file of files) {
       css += `\n@font-face {
   font-family: '${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/, "")}';
   src: url(${file});
 }`;
       };
-    } catch (err) {
-      Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
-    };
-
     return css;
   };
 
