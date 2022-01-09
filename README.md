@@ -8,9 +8,12 @@ Facilitates using Custom Fonts in Journal Entries, Text Drawings on the canvas, 
 
 ## Usage
 
-Go to module settings and set the font families you want to use.
+Go to module settings and set the font families you want to use. It's recommended to only use fonts from Google Fonts or in your font directory so that's it's available for all users, but you can enter locally installed fonts as well.
 
-Using fonts from Google Fonts requires connection to Internet. You cannot load more than 100 fonts from Google Fonts. You also cannot load from more than 50 folders in your local fonts directory.
+### Limitations
+
+Using fonts from Google Fonts requires connection to Internet. You cannot load more than 100 fonts from Google Fonts.
+You also cannot load from more than 50 folders in your local fonts directory.
 
 ### Font loading issues
 
@@ -21,6 +24,14 @@ If your drawings don't update, run the following in a script macro or the browse
 ```js
 canvas.drawings.placeables.filter(d => d.data.type === 't').forEach(d => d.draw());
 ```
+
+### Migrating from the old Forien's Custom Fonts module
+
+1. Install the latest version of the old module alongside this one
+2. Enable both modules
+3. You'll see a prompt asking you if want to migrate your settings
+4. Click "Migrate"
+5. Disable and uninstall the old module
 
 ## Installation
 
