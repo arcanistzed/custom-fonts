@@ -1,4 +1,3 @@
-import { recursiveFileBrowse } from "./helpers.js";
 import registerSettings from "./settings.js";
 
 export default class CustomFonts {
@@ -55,16 +54,8 @@ export default class CustomFonts {
         });
     }
 
-    // Try to get the list of files in the directory
-    let files = [];
-    try {
-      // Get the custom directory from settings
-      const directory = game.settings.get(CustomFonts.ID, "directory");
-      // Get an array of all files in the directory and it's subdirectories
-      files = await recursiveFileBrowse(directory);
-    } catch (err) {
-      Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
-    }
+    // Get the list of local files
+    const files = game.settings.get(CustomFonts.ID, "localFiles");
 
     // Add each file to the CSS
     for (const file of files) {
