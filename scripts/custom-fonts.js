@@ -46,19 +46,19 @@ export default class CustomFonts {
         f = "family=" + f;
         return f;
       }).join("&")}&display=swap`;
-      css = await fetchWithTimeout(url)
+      css = await fetch(url)
         .then(res => res.text())
         .catch(err => {
           Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`));
         });
     };
 
-    // Get the custom directory from settings
+      // Get the custom directory from settings
     try {
       const directory = game.settings.get(CustomFonts.ID, "directory");
       const files = await recursiveFileBrowse(directory);
-      for (const file of files) {
-        css += `\n@font-face {
+    for (const file of files) {
+      css += `\n@font-face {
   font-family: '${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/, "")}';
   src: url(${file});
 }`;
