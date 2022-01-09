@@ -46,6 +46,8 @@ export default class CustomFonts {
         f = "family=" + f;
         return f;
       }).join("&")}&display=swap`;
+
+      // Fetch the font CSS from Google Fonts
       css = await fetch(url)
         .then(res => res.text())
         .catch(err => {
@@ -53,14 +55,17 @@ export default class CustomFonts {
         });
     };
 
+    // Try to get the list of files in the directory
     let files = [];
     try {
       // Get the custom directory from settings
       const directory = game.settings.get(CustomFonts.ID, "directory");
+      // Get an array of all files in the directory and it's subdirectories
       files = await recursiveFileBrowse(directory);
     } catch (err) {
       Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
     };
+    // Add each file to the CSS
     for (const file of files) {
       css += `\n@font-face {
   font-family: '${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/, "")}';
@@ -72,6 +77,7 @@ export default class CustomFonts {
 
   /** Add the fonts to the CONFIG */
   async config() {
+    // List the fonts and then add each one to Foundry's list of font families if it isn't there
     this.list().forEach(f => {
       if (!CONFIG.fontFamilies.includes(f)) CONFIG.fontFamilies.push(f);
     });
@@ -82,10 +88,17 @@ export default class CustomFonts {
 
   /** Add the fonts to the DOM */
   async dom() {
+    // Remove the old element
     document.querySelector("#custom-fonts")?.remove();
+
+    // Create a new style element
     const element = document.createElement("style");
     element.id = CustomFonts.ID;
+
+    // Insert the generated CSS into the style element
     element.innerHTML = await this.generateCSS();
+
+    // Add the style element to the document head
     document.head.appendChild(element);
   };
 
@@ -94,11 +107,14 @@ export default class CustomFonts {
     // Add the font select toolbar button if it's not already there
     if (!CONFIG.TinyMCE.toolbar.includes("fontselect")) CONFIG.TinyMCE.toolbar += " fontselect fontsizeselect";
 
-    // Add the fonts
+    // Add the fonts to the font select dropdown
     CONFIG.TinyMCE.font_formats = this.list().join(";");
+
+    // Add the fonts to the TinyMCE content style CSS or define it if it doesn't exist
     CONFIG.TinyMCE.content_style = CONFIG.TinyMCE.content_style ? CONFIG.TinyMCE.content_style + await this.generateCSS() : await this.generateCSS();
   };
 
+  /** Apply the fonts to the CSS variables which control the font of the entire UI */
   applyUIFonts() {
     const primary = game.settings.get(CustomFonts.ID, "primary");
     document.querySelector(":root").style.setProperty("--font-primary", primary);
@@ -107,4 +123,5 @@ export default class CustomFonts {
   };
 };
 
+// Add the module's API
 Hooks.on("init", () => game.modules.get("custom-fonts").api = new CustomFonts());
