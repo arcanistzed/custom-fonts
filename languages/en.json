@@ -7,11 +7,11 @@
         },
         "settings": {
             "fonts": {
-                "name": "Font families",
-                "hint": "Provide font families from Google Fonts, separated with comma (,)."
+                "name": "Google Fonts",
+                "hint": "Font families to load from Google Fonts, separated with commas (,)."
             },
             "directory": {
-                "name": "Upload fonts",
+                "name": "Font files to upload",
                 "hint": "Directory to load fonts from. Any .otf, .ttf, .woff, or .woff2 files in this directory will be loaded."
             },
             "primary": {

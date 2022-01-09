@@ -7,11 +7,11 @@
         },
         "settings": {
             "fonts": {
-                "name": "Familles de Polices",
-                "hint": "Écrire une list de familles de police disponible sur Google Fonts, separé par des virgules (,)."
+                "name": "Google Fonts",
+                "hint": "Écrire une list de familles de police à téléchargez à partir de Google Fonts, separé par des virgules (,)."
             },
             "directory": {
-                "name": "Téléchargement de polices",
+                "name": "Familles de polices à télécharger",
                 "hint": "Répertoire à partir duquel acquérir des polices. Tout fichier de formats .otf, .ttf, .woff, ou .woff2 dans cet emplacement sera téléchargé."
             },
             "primary": {
