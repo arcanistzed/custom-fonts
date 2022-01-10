@@ -59,8 +59,11 @@ export default class CustomFonts {
     } catch (err) {
       doOnceReady(ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
     }
-    // Save and return file list
+    // Save file list if it's different
+    if (!files.equals(game.settings.get(CustomFonts.ID, "localFiles"))) {
     game.settings.set(CustomFonts.ID, "localFiles", files);
+      await CustomFonts.init();
+    }
     return files;
   }
 
