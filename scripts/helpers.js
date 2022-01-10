@@ -13,3 +13,14 @@ export async function recursiveFileBrowse(directory, l = 0) {
     }
     return files;
 }
+
+/** Run a function once the game is ready
+ * @param {function} callback The function to run
+ */
+export function doOnceReady(callback) {
+    if (game.ready) {
+        callback();
+    } else {
+        Hooks.once("ready", callback);
+    }
+}

@@ -1,3 +1,4 @@
+import { doOnceReady } from "./helpers.js";
 import registerSettings from "./settings.js";
 
 export default class CustomFonts {
@@ -50,7 +51,7 @@ export default class CustomFonts {
       css = await fetch(url)
         .then(res => res.text())
         .catch(err => {
-          Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`));
+          doOnceReady(ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`));
         });
     }
 
