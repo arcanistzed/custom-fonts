@@ -20,19 +20,7 @@ export default function registerSettings() {
         default: "",
         type: String,
         filePicker: "folder",
-        onChange: async () => {
-            // Try to get the list of files in the directory
-            let files = [];
-            try {
-                // Get the custom directory from settings
-                const directory = game.settings.get(CustomFonts.ID, "directory");
-                // Get an array of all files in the directory and it's subdirectories
-                files = await recursiveFileBrowse(directory);
-            } catch (err) {
-                Hooks.once("ready", () => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
-            }
-            game.settings.set(CustomFonts.ID, "localFiles", files);
-        },
+        onChange: () => new CustomFonts(),
     });
     game.settings.register(CustomFonts.ID, "localFiles", {
         scope: "world",
