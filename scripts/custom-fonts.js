@@ -83,7 +83,7 @@ export default class CustomFonts {
     // Add each file to the CSS
     for (const file of files) {
       css += `\n@font-face {
-  font-family: '${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/, "")}';
+  font-family: '${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/i, "")}';
   src: url(${file});
 }`;
     }
