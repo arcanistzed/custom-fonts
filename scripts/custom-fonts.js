@@ -16,7 +16,7 @@ export default class CustomFonts {
       }
     });
 
-    await CustomFonts.init();
+    CustomFonts.init();
   }
 
   /** Initialize Custom Fonts */
