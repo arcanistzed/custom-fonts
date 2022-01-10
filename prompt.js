@@ -51,4 +51,4 @@ Hooks.on("ready", () => {
     },
     default: "next"
   }).render(true);
-})
+});
