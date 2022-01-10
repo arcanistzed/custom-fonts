@@ -1,5 +1,4 @@
 import CustomFonts from "./custom-fonts.js";
-import { recursiveFileBrowse } from "./helpers.js";
 
 export default function registerSettings() {
     game.settings.register(CustomFonts.ID, "fonts", {

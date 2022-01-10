@@ -1,4 +1,4 @@
-import { doOnceReady } from "./helpers.js";
+import { recursiveFileBrowse, doOnceReady } from "./helpers.js";
 import registerSettings from "./settings.js";
 
 export default class CustomFonts {
