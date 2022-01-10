@@ -21,7 +21,7 @@ export default class CustomFonts {
 
   /** Initialize Custom Fonts */
   static async init() {
-    doOnceReady(CustomFonts.updateFileList);
+    if (game.user?.isGM) doOnceReady(CustomFonts.updateFileList);
     await CustomFonts.dom();
     await CustomFonts.config();
     await CustomFonts.tinyMCE();
