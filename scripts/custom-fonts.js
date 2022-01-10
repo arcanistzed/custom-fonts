@@ -5,14 +5,8 @@ export default class CustomFonts {
   constructor() {
     registerSettings();
 
-    Hooks.on("ready", () => this.updateFileList);
-
-    (async () => {
-      await this.dom();
-      await this.config();
-      await this.tinyMCE();
-      this.applyUIFonts();
-    })();
+    // Add the module's API
+    game.modules.get("custom-fonts").api = CustomFonts;
 
     // Redraw drawings when their font family is updated
     Hooks.on("updateDrawing", async (document, change) => {
@@ -21,6 +15,17 @@ export default class CustomFonts {
         await document.object.draw();
       }
     });
+
+    await CustomFonts.init();
+  }
+
+  /** Initialize Custom Fonts */
+  static async init() {
+    doOnceReady(CustomFonts.updateFileList);
+    await CustomFonts.dom();
+    await CustomFonts.config();
+    await CustomFonts.tinyMCE();
+    CustomFonts.applyUIFonts();
   }
 
   /** The module's ID */
@@ -143,5 +148,5 @@ export default class CustomFonts {
   }
 }
 
-// Add the module's API
-Hooks.on("init", () => game.modules.get("custom-fonts").api = new CustomFonts());
+Hooks.on("init", () => new CustomFonts());
+
