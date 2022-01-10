@@ -8,7 +8,7 @@ export default function registerSettings() {
         config: true,
         default: "Grenze Gotisch, Lobster, Indie Flower",
         type: String,
-        onChange: () => new CustomFonts(),
+        onChange: () => CustomFonts.init(),
     });
 
     game.settings.register(CustomFonts.ID, "directory", {
@@ -19,13 +19,13 @@ export default function registerSettings() {
         default: "",
         type: String,
         filePicker: "folder",
-        onChange: () => new CustomFonts(),
+        onChange: () => CustomFonts.init(),
     });
     game.settings.register(CustomFonts.ID, "localFiles", {
         scope: "world",
         config: false,
         type: Object,
-        onChange: () => new CustomFonts(),
+        onChange: () => CustomFonts.init(),
     });
 
     game.settings.register(CustomFonts.ID, "primary", {
@@ -35,7 +35,7 @@ export default function registerSettings() {
         config: true,
         default: "Signika",
         type: String,
-        onChange: () => new CustomFonts(),
+        onChange: () => CustomFonts.init(),
     });
     game.settings.register(CustomFonts.ID, "mono", {
         name: game.i18n.localize("custom-fonts.settings.mono.name"),
@@ -44,6 +44,6 @@ export default function registerSettings() {
         config: true,
         default: "monospace",
         type: String,
-        onChange: () => new CustomFonts(),
+        onChange: () => CustomFonts.init(),
     });
 }
