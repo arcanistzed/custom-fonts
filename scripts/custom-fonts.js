@@ -13,6 +13,14 @@ export default class CustomFonts {
       await this.tinyMCE();
       this.applyUIFonts();
     })();
+
+    // Redraw drawings when their font family is updated
+    Hooks.on("updateDrawing", async (document, change) => {
+      if (change.fontFamily) {
+        await CustomFonts.init();
+        await document.object.draw();
+      }
+    });
   }
 
   /** The module's ID */
@@ -96,9 +104,6 @@ export default class CustomFonts {
     this.list().forEach(f => {
       if (!CONFIG.fontFamilies.includes(f)) CONFIG.fontFamilies.push(f);
     });
-
-    // Redraw text drawings when the canvas is ready
-    Hooks.on("canvasReady", () => canvas.drawings?.placeables.filter(d => d.data.type === 't').forEach(d => d.draw()));
   }
 
   /** Add the fonts to the DOM */
