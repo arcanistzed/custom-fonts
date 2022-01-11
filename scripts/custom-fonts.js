@@ -16,6 +16,9 @@ export default class CustomFonts {
       }
     });
 
+    // Detect missing fonts
+    this.missingInDocumentDetection();
+
     CustomFonts.init();
   }
 
@@ -148,6 +151,38 @@ export default class CustomFonts {
     document.querySelector(":root").style.setProperty("--font-primary", primary);
     const mono = game.settings.get(CustomFonts.ID, "mono");
     document.querySelector(":root").style.setProperty("--font-mono", mono);
+
+    // Alert if one of the UI fonts is missing
+    [primary, mono].forEach(f => {
+      if (!document.fonts.check(`1em ${f}`)) {
+        doOnceReady(() => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: game.i18n.localize("custom-fonts.notifications.missingFont.context.ui"), font: f })}`));
+      }
+    });
+  }
+
+  /** Alert user about missing fonts in their Documents */
+  missingInDocumentDetection() {
+    /** Detect if a font is missing in the Document and alert the user
+     * @param {*} font The font to check for
+     * @param {*} document The Document type
+     * @param {*} id The Document ID
+     */
+    function detect(font, document, id = "") {
+      if (!document.fonts.check(`1em ${font}`)) {
+        ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${document}`)} [${id}]`, font: font })}`);
+      }
+    }
+
+    // Detect if Drawings on the active scene have missing fonts
+    Hooks.on("canvasReady", () => {
+      canvas.drawings.placeables.filter(d => d.data.type === 't').forEach(d => detect(d.data.fontFamily, 'drawing', d.id));
+    });
+
+    // Detect if the viewed Journal Entry has missing fonts
+    Hooks.on("renderJournalSheet", (app, html) => {
+      [...html[0].innerHTML.matchAll(/(?<=\<span style="font-family:).*(?=">)/g)].map(r => r[0])
+        .forEach(font => detect(font, 'journal', app.object.id));
+    });
   }
 }
 
