@@ -181,7 +181,8 @@ export default class CustomFonts {
 
     // Detect if Drawings on the active scene have missing fonts
     Hooks.on("canvasReady", () => {
-      canvas.drawings.placeables.filter(d => d.data.type === 't').forEach(d => detect(d.data.fontFamily, 'drawing', d.id));
+      canvas.drawings.placeables.filter(d => d.data.type === 't')
+        .forEach(d => detect(d.data.fontFamily, 'drawing', d.id));
     });
 
     // Detect if the viewed Journal Entry has missing fonts
