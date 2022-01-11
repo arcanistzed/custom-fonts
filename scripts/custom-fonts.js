@@ -155,7 +155,11 @@ export default class CustomFonts {
     // Alert if one of the UI fonts is missing
     [primary, mono].forEach(f => {
       if (!document.fonts.check(`1em ${f}`)) {
-        doOnceReady(() => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: game.i18n.localize("custom-fonts.notifications.missingFont.context.ui"), font: f })}`));
+        doOnceReady(() => {
+          const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: game.i18n.localize("custom-fonts.notifications.missingFont.context.ui"), font: f })}`;
+          ui.notifications.error(message);
+          console.error(message);
+        });
       }
     });
   }
@@ -169,7 +173,9 @@ export default class CustomFonts {
      */
     function detect(font, doc, id = "") {
       if (!document.fonts.check(`1em ${font}`)) {
-        ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${doc}`)} [${id}]`, font: font })}`);
+        const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${doc}`)} [${id}]`, font: font })}`;
+        ui.notifications.error(message);
+        console.error(message);
       }
     }
 
