@@ -24,7 +24,7 @@ export default class CustomFonts {
 
   /** Initialize Custom Fonts */
   static async init() {
-    if (game.user?.isGM) doOnceReady(CustomFonts.updateFileList);
+    doOnceReady(() => { if (game.user?.isGM) CustomFonts.updateFileList(); });
     await CustomFonts.dom();
     await CustomFonts.config();
     await CustomFonts.tinyMCE();
@@ -60,7 +60,7 @@ export default class CustomFonts {
       // Get an array of all files in the directory and it's subdirectories
       files = await recursiveFileBrowse(directory);
     } catch (err) {
-      doOnceReady(ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
+      doOnceReady(() => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
     }
     // Save file list if it's different
     if (!files.equals(game.settings.get(CustomFonts.ID, "localFiles"))) {
@@ -92,7 +92,7 @@ export default class CustomFonts {
       css = await fetch(url)
         .then(res => res.text())
         .catch(err => {
-          doOnceReady(ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`));
+          doOnceReady(() => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`));
         });
     }
 
