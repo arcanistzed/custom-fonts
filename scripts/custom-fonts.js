@@ -29,6 +29,7 @@ export default class CustomFonts {
     await CustomFonts.config();
     await CustomFonts.tinyMCE();
     CustomFonts.applyUIFonts();
+    CustomFonts.diceSoNice();
   }
 
   /** The module's ID */
@@ -189,6 +190,15 @@ export default class CustomFonts {
     Hooks.on("renderJournalSheet", (app, html) => {
       [...html[0].innerHTML.matchAll(/(?<=\<span style="font-family:).*(?=">)/g)].map(r => r[0])
         .forEach(font => detect(font, 'journal', app.object.id));
+    });
+  }
+
+  static diceSoNice() {
+    Hooks.once('diceSoNiceReady', dice3d => {
+      CustomFonts.list().forEach(font => dice3d.addColorset({
+        font: font,
+        visibility: "hidden",
+      }));
     });
   }
 }
