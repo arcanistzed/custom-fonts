@@ -41,7 +41,7 @@ export default class CustomFonts {
     // Get the document font faces
     const fontFaces = [...document.fonts];
     // Get the family of each font face
-    const fontFaceFamilies = fontFaces.map(f => f.family);
+    const fontFaceFamilies = fontFaces.map(f => f.family.replaceAll(/^\"|\"$/g, ""));
     // Get an array of font families without duplicates
     const fontFamilies = [...new Set(fontFaceFamilies)];
     // Return the fonts without the Font Awesome fonts
