@@ -103,7 +103,7 @@ export default class CustomFonts {
     // Add each file to the CSS
     for (const file of files) {
       css += `\n@font-face {
-  font-family: '${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/i, "")}';
+  font-family: "${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/i, "")}";
   src: url(${file});
 }`;
     }
@@ -182,19 +182,19 @@ export default class CustomFonts {
 
     // Detect if Drawings on the active scene have missing fonts
     Hooks.on("canvasReady", () => {
-      canvas.drawings.placeables.filter(d => d.data.type === 't')
-        .forEach(d => detect(d.data.fontFamily, 'drawing', d.id));
+      canvas.drawings.placeables.filter(d => d.data.type === "t")
+        .forEach(d => detect(d.data.fontFamily, "drawing", d.id));
     });
 
     // Detect if the viewed Journal Entry has missing fonts
     Hooks.on("renderJournalSheet", (app, html) => {
       [...html[0].innerHTML.matchAll(/(?<=\<span style="font-family:).*(?=">)/g)].map(r => r[0])
-        .forEach(font => detect(font, 'journal', app.object.id));
+        .forEach(font => detect(font, "journal", app.object.id));
     });
   }
 
   static diceSoNice() {
-    Hooks.once('diceSoNiceReady', dice3d => {
+    Hooks.once("diceSoNiceReady", dice3d => {
       CustomFonts.list().forEach(font => dice3d.addColorset({
         font: font,
         visibility: "hidden",
