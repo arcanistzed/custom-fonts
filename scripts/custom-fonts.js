@@ -9,10 +9,10 @@ export default class CustomFonts {
     game.modules.get("custom-fonts").api = CustomFonts;
 
     // Redraw drawings when their font family is updated
-    Hooks.on("updateDrawing", async (document, change) => {
+    Hooks.on("updateDrawing", async (doc, change) => {
       if (change.fontFamily) {
         await CustomFonts.init();
-        await document.object.draw();
+        await doc.object.draw();
       }
     });
 
@@ -164,12 +164,12 @@ export default class CustomFonts {
   missingInDocumentDetection() {
     /** Detect if a font is missing in the Document and alert the user
      * @param {*} font The font to check for
-     * @param {*} document The Document type
+     * @param {*} doc The Document type
      * @param {*} id The Document ID
      */
-    function detect(font, document, id = "") {
+    function detect(font, doc, id = "") {
       if (!document.fonts.check(`1em ${font}`)) {
-        ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${document}`)} [${id}]`, font: font })}`);
+        ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${doc}`)} [${id}]`, font: font })}`);
       }
     }
 
