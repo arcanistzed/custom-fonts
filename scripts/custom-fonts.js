@@ -187,4 +187,3 @@ export default class CustomFonts {
 }
 
 Hooks.on("init", () => new CustomFonts());
-
