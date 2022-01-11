@@ -26,10 +26,10 @@ export default class CustomFonts {
   static async init() {
     doOnceReady(() => { if (game.user?.isGM) CustomFonts.updateFileList(); });
     await CustomFonts.dom();
-    await CustomFonts.config();
+    CustomFonts.config();
+    Hooks.once("diceSoNiceReady", CustomFonts.diceSoNice);
     await CustomFonts.tinyMCE();
     CustomFonts.applyUIFonts();
-    Hooks.once("diceSoNiceReady", CustomFonts.diceSoNice);
   }
 
   /** The module's ID */
@@ -110,12 +110,20 @@ export default class CustomFonts {
     return css;
   }
 
-  /** Add the fonts to the CONFIG */
-  static async config() {
+  /** Add the fonts to the core CONFIG */
+  static config() {
     // List the fonts and then add each one to Foundry's list of font families if it isn't there
     CustomFonts.list().forEach(f => {
       if (!CONFIG.fontFamilies.includes(f)) CONFIG.fontFamilies.push(f);
     });
+  }
+
+  /** Add the fonts to Dice so Nice */
+  static diceSoNice(dice3d) {
+    CustomFonts.list().forEach(font => dice3d.addColorset({
+      font: font,
+      visibility: "hidden",
+    }));
   }
 
   /** Add the fonts to the DOM */
@@ -191,13 +199,6 @@ export default class CustomFonts {
       [...html[0].innerHTML.matchAll(/(?<=\<span style="font-family:).*(?=">)/g)].map(r => r[0])
         .forEach(font => detect(font, "journal", app.object.id));
     });
-  }
-
-  static diceSoNice(dice3d) {
-    CustomFonts.list().forEach(font => dice3d.addColorset({
-      font: font,
-      visibility: "hidden",
-    }));
   }
 }
 
