@@ -33,6 +33,11 @@ canvas.drawings.placeables.filter(d => d.data.type === 't').forEach(d => d.draw(
 4. Click "Migrate"
 5. Disable and uninstall the old module
 
+### Downloading font CSS
+
+For developers and content creators, there is a button in module settings to download a CSS file that you can include in your package (under the CC0 license).
+To use this file, add this to your package's folder and put a `styles` field in your manifest containing the name of this file. Before doing  this, it's suggested that you set Custom Fonts' local folder setting to a folder within your package's folder so that this button generates the correct paths. Don't forget to include all of the local font files when distributing!
+
 ## Installation
 
 In the setup screen, use the URL `https://github.com/arcanistzed/custom-fonts/releases/latest/download/module.json` to install the module.

@@ -29,6 +29,11 @@
             "mono": {
                 "name": "Monospace font",
                 "hint": "Enter the name of a font which will be used as the monospace font. By default you'll see this font in text areas such as the chat form or macro editor among other places."
+            },
+            "downloadCSS": {
+                "name": "Download CSS",
+                "label": "Download the Custom Fonts CSS file",
+                "hint": "This is for use by Developers and Content Creators. It will download a CSS file to your computer containing the code needed to load your fonts. See the README for more info."
             }
         }
     }

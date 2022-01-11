@@ -21,6 +21,22 @@
             "mono": {
                 "name": "Police à espacement fixe",
                 "hint": "Entrez le nom de la police que vous voulez utiliser pour tout texte à espacement fixe de l'interface utilisateur. Par défaut, vous verrez cette police dans les zones de texte tels que le formulaire de chat ou l'éditeur de macros."
+            },
+            "translate": {
+                "en": {
+                    "downloadCSS": {
+                        "name": "Download CSS",
+                        "label": "Download the Custom Fonts CSS file",
+                        "hint": "For developers and content creators. This will download a CSS file to your computer containing the code needed for your custom fonts to load for your users. See the README for more info."
+                    }
+                },
+                "fr:": {
+                    "downloadCSS": {
+                        "name": "Télécharger CSS",
+                        "label": "Télécharger le fichier CSS des polices",
+                        "hint": "Pour les développeurs et les créateurs de contenu. Cela va télécharger un fichier CSS sur votre ordis contenant le code nécessaire pour que vos polices soient chargés par vos utilisateurs. Voir le README pour plus d'infos."
+                    }
+                }
             }
         }
     }

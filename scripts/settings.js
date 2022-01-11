@@ -46,4 +46,17 @@ export default function registerSettings() {
         type: String,
         onChange: () => CustomFonts.init(),
     });
+
+    game.settings.registerMenu(CustomFonts.ID, "downloadCSS", {
+        name: game.i18n.localize("custom-fonts.settings.downloadCSS.name"),
+        label: game.i18n.localize("custom-fonts.settings.downloadCSS.label"),
+        hint: game.i18n.localize("custom-fonts.settings.downloadCSS.hint"),
+        icon: "fas fa-download",
+        type: class extends FormApplication {
+            constructor(...args) {
+                super(...args);
+                (async () => saveDataToFile(await CustomFonts.generateCSS(), "text/css", "Custom Fonts"))();
+            }
+        },
+    });
 }
