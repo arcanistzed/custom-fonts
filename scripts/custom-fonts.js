@@ -29,7 +29,7 @@ export default class CustomFonts {
     await CustomFonts.config();
     await CustomFonts.tinyMCE();
     CustomFonts.applyUIFonts();
-    CustomFonts.diceSoNice();
+    Hooks.once("diceSoNiceReady", CustomFonts.diceSoNice);
   }
 
   /** The module's ID */
@@ -193,13 +193,11 @@ export default class CustomFonts {
     });
   }
 
-  static diceSoNice() {
-    Hooks.once("diceSoNiceReady", dice3d => {
-      CustomFonts.list().forEach(font => dice3d.addColorset({
-        font: font,
-        visibility: "hidden",
-      }));
-    });
+  static diceSoNice(dice3d) {
+    CustomFonts.list().forEach(font => dice3d.addColorset({
+      font: font,
+      visibility: "hidden",
+    }));
   }
 }
 
