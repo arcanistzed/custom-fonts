@@ -63,6 +63,8 @@ export default class CustomFonts {
     } catch (err) {
       doOnceReady(() => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
     }
+    // Get the first 50 files with font file extensions
+    const fontFiles = files.filter(file => file.split("/").at(-1).match(/\.otf|\.ttf|\.woff|\.woff2/i, "")).slice(0, 50);
     // Save file list if it's different
     if (!files.equals(game.settings.get(CustomFonts.ID, "localFiles"))) {
       game.settings.set(CustomFonts.ID, "localFiles", files);
