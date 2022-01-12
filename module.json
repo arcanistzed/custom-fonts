@@ -6,6 +6,7 @@
   "manifestPlusVersion": "1.2.0",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": 9,
+  "library": true,
   "author": "arcanist",
   "authors": [
     {
