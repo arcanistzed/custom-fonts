@@ -13,7 +13,7 @@ Go to module settings and set the font families you want to use. It's recommende
 ### Limitations
 
 Using fonts from Google Fonts requires connection to Internet. You cannot load more than 100 fonts from Google Fonts.
-You also cannot load from more than 50 folders in your local fonts directory.
+You also cannot load more than 50 fonts from more than 50 folders in your local fonts directory.
 
 ### Font loading issues
 
