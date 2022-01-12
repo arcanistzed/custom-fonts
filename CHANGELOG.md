@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1 - 11 Jan 2022
+
+### Fixed
+
+* Set default local directory to `fonts`
+* Made the module a library for load order
+* Only save a file list with the first 50 files that have valid font file extensions
+
 ## 0.2.0 - 11 Jan 2022
 
 ### Fixed
