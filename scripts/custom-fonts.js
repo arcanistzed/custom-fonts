@@ -68,15 +68,12 @@ export default class CustomFonts {
       });
     }
 
-    // Get the first 50 files with valid font file extensions
-    const fontFiles = files.filter(file => file.split("/").at(-1).match(/\.otf|\.ttf|\.woff|\.woff2/i, "")).slice(0, 50);
-
     // Save file list if it's different
-    if (!fontFiles.equals(game.settings.get(CustomFonts.ID, "localFiles"))) {
-      game.settings.set(CustomFonts.ID, "localFiles", fontFiles);
+    if (!files.equals(game.settings.get(CustomFonts.ID, "localFiles"))) {
+      game.settings.set(CustomFonts.ID, "localFiles", files);
       await CustomFonts.init();
     }
-    return fontFiles;
+    return files;
   }
 
   /** Generate the CSS for loading all of the fonts
