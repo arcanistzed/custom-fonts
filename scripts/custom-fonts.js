@@ -68,11 +68,11 @@ export default class CustomFonts {
     const fontFiles = files.filter(file => file.split("/").at(-1).match(/\.otf|\.ttf|\.woff|\.woff2/i, "")).slice(0, 50);
 
     // Save file list if it's different
-    if (!files.equals(game.settings.get(CustomFonts.ID, "localFiles"))) {
-      game.settings.set(CustomFonts.ID, "localFiles", files);
+    if (!fontFiles.equals(game.settings.get(CustomFonts.ID, "localFiles"))) {
+      game.settings.set(CustomFonts.ID, "localFiles", fontFiles);
       await CustomFonts.init();
     }
-    return files;
+    return fontFiles;
   }
 
   /** Generate the CSS for loading all of the fonts
