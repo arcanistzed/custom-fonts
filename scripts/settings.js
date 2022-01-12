@@ -16,7 +16,7 @@ export default function registerSettings() {
         hint: game.i18n.localize("custom-fonts.settings.directory.hint"),
         scope: "world",
         config: true,
-        default: "",
+        default: "fonts",
         type: String,
         filePicker: "folder",
         onChange: () => CustomFonts.init(),
