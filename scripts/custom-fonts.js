@@ -61,7 +61,11 @@ export default class CustomFonts {
       // Get an array of all files in the directory and it's subdirectories
       files = await recursiveFileBrowse(directory);
     } catch (err) {
-      doOnceReady(() => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`));
+      doOnceReady(() => {
+        const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`;
+        ui.notifications.warn(message);
+        console.warn(message);
+      });
     }
 
     // Get the first 50 files with valid font file extensions
@@ -97,7 +101,11 @@ export default class CustomFonts {
       css = await fetch(url)
         .then(res => res.text())
         .catch(err => {
-          doOnceReady(() => ui.notifications.error(`${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`));
+          doOnceReady(() => {
+            const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`;
+            ui.notifications.warn(message);
+            console.warn(message);
+          });
         });
     }
 
