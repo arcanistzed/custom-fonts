@@ -1,6 +1,19 @@
 import CustomFonts from "./custom-fonts.js";
 
 export default function registerSettings() {
+    game.settings.registerMenu(CustomFonts.ID, "downloadCSS", {
+        name: game.i18n.localize("custom-fonts.settings.downloadCSS.name"),
+        label: game.i18n.localize("custom-fonts.settings.downloadCSS.label"),
+        hint: game.i18n.localize("custom-fonts.settings.downloadCSS.hint"),
+        icon: "fas fa-download",
+        type: class extends FormApplication {
+            constructor(...args) {
+                super(...args);
+                (async () => saveDataToFile(await CustomFonts.generateCSS(), "text/css", "Custom Fonts"))();
+            }
+        },
+    });
+
     game.settings.register(CustomFonts.ID, "fonts", {
         name: game.i18n.localize("custom-fonts.settings.fonts.name"),
         hint: game.i18n.localize("custom-fonts.settings.fonts.hint"),
@@ -55,18 +68,5 @@ export default function registerSettings() {
         default: false,
         type: Boolean,
         onChange: () => location.reload(),
-    });
-
-    game.settings.registerMenu(CustomFonts.ID, "downloadCSS", {
-        name: game.i18n.localize("custom-fonts.settings.downloadCSS.name"),
-        label: game.i18n.localize("custom-fonts.settings.downloadCSS.label"),
-        hint: game.i18n.localize("custom-fonts.settings.downloadCSS.hint"),
-        icon: "fas fa-download",
-        type: class extends FormApplication {
-            constructor(...args) {
-                super(...args);
-                (async () => saveDataToFile(await CustomFonts.generateCSS(), "text/css", "Custom Fonts"))();
-            }
-        },
     });
 }
