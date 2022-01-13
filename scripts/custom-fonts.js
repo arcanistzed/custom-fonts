@@ -59,7 +59,7 @@ export default class CustomFonts {
       // Get the custom directory from settings
       const directory = game.settings.get(CustomFonts.ID, "directory");
       // Get an array of all files in the directory and it's subdirectories
-      files = await recursiveFileBrowse(directory);
+      files = directory ? await recursiveFileBrowse(directory) : [];
     } catch (err) {
       doOnceReady(() => {
         const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`;
@@ -70,7 +70,7 @@ export default class CustomFonts {
 
     // Save file list if it's different
     if (!files.equals(game.settings.get(CustomFonts.ID, "localFiles"))) {
-      game.settings.set(CustomFonts.ID, "localFiles", files);
+      await game.settings.set(CustomFonts.ID, "localFiles", files);
       await CustomFonts.init();
     }
     return files;
