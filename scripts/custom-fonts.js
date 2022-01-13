@@ -156,8 +156,8 @@ export default class CustomFonts {
     // Add the toolbar buttons and make sure they are all unique
     CONFIG.TinyMCE.toolbar = [...new Set([...CONFIG.TinyMCE.toolbar.split(" "), "fontselect", "fontsizeselect", "forecolor", "backcolor"])].join(" ");
 
-    // Add the fonts to the font select dropdown
-    CONFIG.TinyMCE.font_formats = CustomFonts.list().join(";");
+    // Add Google Docs font sizes
+    CONFIG.TinyMCE.fontsize_formats = ["8", "9", "10", "11", "12", "14", "18", "24", "30", "36", "48", "60", "72", "96"].map(s => s + "pt").join(" ");
 
     // Add the fonts to the TinyMCE content style CSS or define it if it doesn't exist
     CONFIG.TinyMCE.content_style = CONFIG.TinyMCE.content_style ? CONFIG.TinyMCE.content_style + await CustomFonts.generateCSS() : await CustomFonts.generateCSS();
