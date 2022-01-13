@@ -11,7 +11,8 @@
                     "drawing": "a Drawing",
                     "journal": "a Journal Entry"
                 }
-            }
+            },
+            "libWrapperRequired": "libWrapper must be enabled to use the crisper text drawings functionality."
         },
         "settings": {
             "fonts": {
@@ -24,7 +25,7 @@
             },
             "primary": {
                 "name": "Primary font",
-                "hint": "Enter the name of a font which will be used for all major user interface text."
+                "hint": "Enter the name of a font which will be used for all major user interface text and as the default font family for drawings."
             },
             "mono": {
                 "name": "Monospace font",

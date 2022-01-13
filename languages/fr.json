@@ -16,7 +16,7 @@
             },
             "primary": {
                 "name": "Police Principale",
-                "hint": "Entrez le nom de la police que vous voulez utiliser pour tout text primaire de l'interface utilisateur."
+                "hint": "Entrez le nom de la police que vous voulez utiliser pour tout text primaire de l'interface utilisateur ainsi que la police par défaut pour les dessins."
             },
             "mono": {
                 "name": "Police à espacement fixe",

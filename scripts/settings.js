@@ -47,6 +47,16 @@ export default function registerSettings() {
         onChange: () => CustomFonts.init(),
     });
 
+    game.settings.register(CustomFonts.ID, "crisperTextDrawings", {
+        name: game.i18n.localize("custom-fonts.settings.crisperTextDrawings.name"),
+        hint: game.i18n.localize("custom-fonts.settings.crisperTextDrawings.hint"),
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+        onChange: () => location.reload(),
+    });
+
     game.settings.registerMenu(CustomFonts.ID, "downloadCSS", {
         name: game.i18n.localize("custom-fonts.settings.downloadCSS.name"),
         label: game.i18n.localize("custom-fonts.settings.downloadCSS.label"),

@@ -19,6 +19,9 @@ export default class CustomFonts {
     // Detect missing fonts
     this.missingInDocumentDetection();
 
+    // Crisper text drawings
+    if (game.settings.get(CustomFonts.ID, "crisperTextDrawings")) this.crisperTextDrawings();
+
     CustomFonts.init();
   }
 
@@ -125,6 +128,9 @@ export default class CustomFonts {
     CustomFonts.list().forEach(f => {
       if (!CONFIG.fontFamilies.includes(f)) CONFIG.fontFamilies.push(f);
     });
+
+    // Use primary font family for Drawings
+    CONFIG.defaultFontFamily = game.settings.get(CustomFonts.ID, "primary");
   }
 
   /** Add the fonts to Dice so Nice */
@@ -223,6 +229,50 @@ export default class CustomFonts {
       [...html[0].innerHTML.matchAll(/(?<=\<span style="font-family:)[^";,]*/g)].map(r => r[0])
         .forEach(font => detect(font, "journal", app.object.id));
     });
+  }
+
+  crisperTextDrawings() {
+    // Verify libWrapper is enabled
+    if (!game.modules.get("lib-wrapper")?.active) {
+      doOnceReady(() => {
+        const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.libWrapperRequired")}`;
+        ui.notifications.warn(message);
+        console.warn(message);
+      });
+      return;
+    };
+
+    // Unregister any existing wrappers
+    libWrapper.unregister_all(CustomFonts.ID);
+
+    // Register a wrapper for the Drawing create text method
+    libWrapper.register(CustomFonts.ID, "Drawing.prototype._createText",
+      // The following function is mostly core code. It is used under the Foundry Virtual Tabletop Limited License Agreement for module development
+      function () {
+        if (this.text && !this.text._destroyed) {
+          this.text.destroy();
+          this.text = null;
+        }
+        const isText = this.data.type === CONST.DRAWING_TYPES.TEXT;
+        const stroke = Math.max(Math.round(this.data.fontSize / 32), 2);
+
+        // Define the text style
+        const textStyle = new PIXI.TextStyle({
+          fontFamily: this.data.fontFamily || CONFIG.defaultFontFamily,
+          fontSize: this.data.fontSize,
+          fill: this.data.textColor || "#FFFFFF",
+          align: isText ? "left" : "center",
+          wordWrap: !isText,
+          wordWrapWidth: 1.5 * this.data.width,
+          padding: stroke,
+          resolution: 5,
+        });
+
+        // Create the text container
+        const text = new PreciseText(this.data.text, textStyle);
+        text.resolution = 5;
+        return text;
+      }, "OVERRIDE");
   }
 }
 
