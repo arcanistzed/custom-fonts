@@ -156,6 +156,15 @@ export default class CustomFonts {
     // Add the toolbar buttons and make sure they are all unique
     CONFIG.TinyMCE.toolbar = [...new Set([...CONFIG.TinyMCE.toolbar.split(" "), "fontselect", "fontsizeselect", "forecolor", "backcolor"])].join(" ");
 
+    // Add the fonts to the dropdown
+    let font_formats = (CONFIG.TinyMCE.font_formats || "").split(";").reduce((obj, f) => {
+      let parts = f.split("=");
+      if (parts[0]) obj[parts[0]] = parts[1];
+      return obj;
+    }, {});
+    mergeObject(font_formats, Object.fromEntries(game.modules.get("custom-fonts").api.list().map(k => [k, k])));
+    CONFIG.TinyMCE.font_formats = Object.entries(font_formats).map(([k, v]) => k + "=" + v).join(";");
+
     // Add Google Docs font sizes
     CONFIG.TinyMCE.fontsize_formats = ["8", "9", "10", "11", "12", "14", "18", "24", "30", "36", "48", "60", "72", "96"].map(s => s + "pt").join(" ");
 
