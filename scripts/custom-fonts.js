@@ -153,8 +153,8 @@ export default class CustomFonts {
 
   /** Add the fonts to TinyMCE editors */
   static async tinyMCE() {
-    // Add the font select toolbar button if it's not already there
-    if (!CONFIG.TinyMCE.toolbar.includes("fontselect")) CONFIG.TinyMCE.toolbar += " fontselect fontsizeselect";
+    // Add the toolbar buttons and make sure they are all unique
+    CONFIG.TinyMCE.toolbar = [...new Set([...CONFIG.TinyMCE.toolbar.split(" "), "fontselect", "fontsizeselect", "forecolor", "backcolor"])].join(" ");
 
     // Add the fonts to the font select dropdown
     CONFIG.TinyMCE.font_formats = CustomFonts.list().join(";");
