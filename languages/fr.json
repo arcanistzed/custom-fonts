@@ -15,6 +15,11 @@
             "libWrapperRequired": "libWrapper doit être activé pour utiliser la fonctionnalité de Dessins plus net."
         },
         "settings": {
+            "downloadCSS": {
+                "name": "Télécharger CSS",
+                "label": "Télécharger le fichier CSS des polices",
+                "hint": "Pour les développeurs et les créateurs de contenu. Cela va télécharger un fichier CSS sur votre ordis contenant le code nécessaire pour que vos polices soient chargés par vos utilisateurs. Voir le README pour plus d'infos."
+            },
             "fonts": {
                 "name": "Google Fonts",
                 "hint": "Écrire une list de familles de police à téléchargez à partir de Google Fonts, separé par des virgules (,)."
@@ -30,11 +35,6 @@
             "mono": {
                 "name": "Police à espacement fixe",
                 "hint": "Entrez le nom de la police que vous voulez utiliser pour tout texte à espacement fixe de l'interface utilisateur. Par défaut, vous verrez cette police dans les zones de texte tels que le formulaire de chat ou l'éditeur de macros."
-            },
-            "downloadCSS": {
-                "name": "Télécharger CSS",
-                "label": "Télécharger le fichier CSS des polices",
-                "hint": "Pour les développeurs et les créateurs de contenu. Cela va télécharger un fichier CSS sur votre ordis contenant le code nécessaire pour que vos polices soient chargés par vos utilisateurs. Voir le README pour plus d'infos."
             },
             "sharperTextDrawings": {
                 "name": "Dessins de texte plus net",
