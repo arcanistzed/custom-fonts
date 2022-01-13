@@ -60,9 +60,9 @@ export default function registerSettings() {
         onChange: () => CustomFonts.init(),
     });
 
-    game.settings.register(CustomFonts.ID, "crisperTextDrawings", {
-        name: game.i18n.localize("custom-fonts.settings.crisperTextDrawings.name"),
-        hint: game.i18n.localize("custom-fonts.settings.crisperTextDrawings.hint"),
+    game.settings.register(CustomFonts.ID, "sharperTextDrawings", {
+        name: game.i18n.localize("custom-fonts.settings.sharperTextDrawings.name"),
+        hint: game.i18n.localize("custom-fonts.settings.sharperTextDrawings.hint"),
         scope: "world",
         config: true,
         default: false,

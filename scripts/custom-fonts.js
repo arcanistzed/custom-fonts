@@ -19,8 +19,8 @@ export default class CustomFonts {
     // Detect missing fonts
     this.missingInDocumentDetection();
 
-    // Crisper text drawings
-    if (game.settings.get(CustomFonts.ID, "crisperTextDrawings")) this.crisperTextDrawings();
+    // Sharper text drawings
+    if (game.settings.get(CustomFonts.ID, "sharperTextDrawings")) this.sharperTextDrawings();
 
     CustomFonts.init();
   }
@@ -231,7 +231,7 @@ export default class CustomFonts {
     });
   }
 
-  crisperTextDrawings() {
+  sharperTextDrawings() {
     // Verify libWrapper is enabled
     if (!game.modules.get("lib-wrapper")?.active) {
       doOnceReady(() => {

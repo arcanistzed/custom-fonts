@@ -12,7 +12,7 @@
                     "journal": "a Journal Entry"
                 }
             },
-            "libWrapperRequired": "libWrapper must be enabled to use the crisper text drawings functionality."
+            "libWrapperRequired": "libWrapper must be enabled to use the sharper text drawings functionality."
         },
         "settings": {
             "fonts": {
@@ -35,6 +35,10 @@
                 "name": "Download CSS",
                 "label": "Download the Custom Fonts CSS file",
                 "hint": "This is for use by Developers and Content Creators. It will download a CSS file to your computer containing the code needed to load your fonts. See the README for more info."
+            },
+            "sharperTextDrawings": {
+                "name": "Sharper Text Drawings",
+                "hint": "Increases the resolution of text Drawings and removes their stroke & text shadow."
             }
         }
     }
