@@ -201,11 +201,11 @@ export default class CustomFonts {
     function detect(font, doc, id = "") {
       doOnceReady(() => {
         try {
-      if (!document.fonts.check(`1em ${font}`)) {
-        const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${doc}`)} [${id}]`, font: font })}`;
-        ui.notifications.warn(message);
-        console.warn(message);
-      }
+          if (!document.fonts.check(`1em ${font}`)) {
+            const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${doc}`)} [${id}]`, font: font })}`;
+            ui.notifications.warn(message);
+            console.warn(message);
+          }
         } catch (err) {
           console.error(err);
         }
