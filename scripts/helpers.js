@@ -4,9 +4,21 @@
  * @return {Promise<string[]>} All of the files in the directory and it's subdirectories
  */
 export async function recursiveFileBrowse(directory, l = 0) {
+    // Break if recursion limit has been reached
     if (l >= 50) return [];
-    const res = await FilePicker.browse("data", directory);
-    const files = res.files.slice(0, 50).filter(file => file.split("/").at(-1).match(/\.otf|\.ttf|\.woff|\.woff2/i, ""));
+
+    // Get the correct source
+    const source = directory.startsWith(globalThis?.ForgeVTT?.ASSETS_LIBRARY_URL_PREFIX) ? "forgevtt" : "data";
+
+    // Get the files in that directory and source 
+    const res = await FilePicker.browse(source, directory);
+    const files = res.files
+        // Only use files with valid file extensions
+        .filter(file => file.split("/").at(-1).match(/\.otf|\.ttf|\.woff|\.woff2/i, ""))
+        // Only use the first 50 
+        .slice(0, 50);
+
+    // Recurse if there are subdirectories
     for (const dir of res.dirs) {
         files.push(...await recursiveFileBrowse(dir, l));
         l++;
