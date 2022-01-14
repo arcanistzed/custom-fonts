@@ -11,7 +11,8 @@
                     "drawing": "画像",
                     "journal": "資料"
                 }
-            }
+            },
+            "libWrapperRequired": "鋭いテキスト描画を使用するにはlibWrapperのModが必要です。"
         },
         "settings": {
             "downloadCSS": {
