@@ -25,8 +25,8 @@
                 "hint": "Écrire une list de familles de police à téléchargez à partir de Google Fonts, separé par des virgules (,)."
             },
             "directory": {
-                "name": "Familles de polices à télécharger",
-                "hint": "Répertoire à partir duquel acquérir des polices. Tout fichier de formats .otf, .ttf, .woff, ou .woff2 dans cet emplacement sera téléchargé."
+                "name": "Répertoire de polices locale",
+                "hint": "Tout fichier de formats .otf, .ttf, .woff, ou .woff2 dans cet emplacement sera téléchargé."
             },
             "primary": {
                 "name": "Police Principale",
