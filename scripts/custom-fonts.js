@@ -188,7 +188,7 @@ export default class CustomFonts {
     // Alert if one of the UI fonts is missing
     doOnceReady(() => {
       [primary, mono].forEach(f => {
-        if (!document.fonts.check(`1em ${f}`)) {
+        if (f && !document.fonts.check(`1em ${f}`)) {
           const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: game.i18n.localize("custom-fonts.notifications.missingFont.context.ui"), font: f })}`;
           ui.notifications.warn(message);
           console.warn(message);
