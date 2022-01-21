@@ -25,6 +25,10 @@ If your drawings don't update, run the following in a script macro or the browse
 canvas.drawings.placeables.filter(d => d.data.type === 't').forEach(d => d.draw());
 ```
 
+### Using local fonts on The Forge
+
+If you are using The Forge, you need to create a folder in the Asset library first (try calling it `fonts`, for example) and then select that folder in the file picker in the module settings.
+
 ### Migrating from the old Forien's Custom Fonts module
 
 1. Install the latest version of the old module alongside this one
