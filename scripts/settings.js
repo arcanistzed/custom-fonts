@@ -34,10 +34,16 @@ export default function registerSettings() {
         filePicker: "folder",
         onChange: () => CustomFonts.init(),
     });
+    game.settings.register(CustomFonts.ID, "presetDirectories", {
+        scope: "world",
+        config: false,
+        default: [],
+        type: Array,
+    });
     game.settings.register(CustomFonts.ID, "localFiles", {
         scope: "world",
         config: false,
-        type: Object,
+        type: Array,
         onChange: () => CustomFonts.init(),
     });
 

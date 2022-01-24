@@ -1,4 +1,5 @@
-import { recursiveFileBrowse, doOnceReady } from "./helpers.js";
+import { recursiveFontFileBrowse, doOnceReady } from "./helpers.js";
+import registerPresets from "./presets.js";
 import registerSettings from "./settings.js";
 
 export default class CustomFonts {
@@ -7,6 +8,9 @@ export default class CustomFonts {
 
     // Add the module's API
     game.modules.get(CustomFonts.ID).api = CustomFonts;
+
+    // Register presets
+    doOnceReady(() => { if (game.user.isGM) registerPresets(); });
 
     // Redraw drawings when their font family is updated
     Hooks.on("updateDrawing", async (doc, change) => {
@@ -47,6 +51,9 @@ export default class CustomFonts {
   /** The module's ID */
   static ID = "custom-fonts";
 
+  /** Registered presets */
+  static get presets() { return registerPresets(); };
+
   /** List all loaded and available fonts
    * @return {Array<string>} An array of all loaded fonts (excluding Font Awesome fonts)
    */
@@ -65,19 +72,17 @@ export default class CustomFonts {
    * @returns {string[]} The list of files
    */
   static async updateFileList() {
-    // Try to get the list of files in the directory
     let files = [];
-    try {
-      // Get the custom directory from settings
-      const directory = game.settings.get(CustomFonts.ID, "directory");
-      // Get an array of all files in the directory and it's subdirectories
-      files = directory ? await recursiveFileBrowse(directory) : [];
-    } catch (err) {
-      doOnceReady(() => {
-        const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`;
-        ui.notifications.warn(message);
-        console.warn(message);
-      });
+
+    // Get all font directories
+    const directories = [game.settings.get(CustomFonts.ID, "directory"), ...game.settings.get(CustomFonts.ID, "presetDirectories")];
+
+    // Go through each directory
+    for (const directory of directories) {
+      if (!directory) continue;
+
+      // Get an array of all font files in the directory
+      files.push(...await recursiveFontFileBrowse(directory));
     }
 
     // Save file list if it's different

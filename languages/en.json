@@ -12,7 +12,9 @@
                     "journal": "a Journal Entry"
                 }
             },
-            "libWrapperRequired": "libWrapper must be enabled to use the sharper text drawings functionality."
+            "libWrapperRequired": "libWrapper must be enabled to use the sharper text drawings functionality.",
+            "presetLoaded": "Preset \"{preset}\" succesfully applied! You may now disable the preset module.",
+            "invalidPreset": "Invalid preset \"{preset}\": {error}"
         },
         "settings": {
             "downloadCSS": {
