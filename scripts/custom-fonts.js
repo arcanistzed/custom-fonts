@@ -6,7 +6,7 @@ export default class CustomFonts {
     registerSettings();
 
     // Add the module's API
-    game.modules.get("custom-fonts").api = CustomFonts;
+    game.modules.get(CustomFonts.ID).api = CustomFonts;
 
     // Redraw drawings when their font family is updated
     Hooks.on("updateDrawing", async (doc, change) => {
