@@ -42,6 +42,16 @@ If you are using The Forge, you need to create a folder in the Asset library fir
 For developers and content creators, there is a button in module settings to download a CSS file that you can include in your package (under the CC0 license).
 To use this file, add this to your package's folder and put a `styles` field in your manifest containing the name of this file. Before doing  this, it's suggested that you set Custom Fonts' local folder setting to a folder within your package's folder so that this button generates the correct paths. Don't forget to include all of the local font files when distributing!
 
+## Presets
+
+You can specify presets by adding the settings values to your module's manifest flags. See the [example module](https://github.com/arcanistzed/custom-fonts-example-preset). It's important to note that the `"fonts"` field must contain valid font names from Google Fonts and that the `"directory"` field is relative to the module's folder.
+
+Known presets will be listed here:
+
+- [Example Preset](https://foundryvtt.com/packages/custom-fonts-example-preset)
+
+Please let me know if you have any questions about how to create a preset or if you have created a preset which you would like added to the list!
+
 ## Installation
 
 In the setup screen, use the URL `https://github.com/arcanistzed/custom-fonts/releases/latest/download/module.json` to install the module.
