@@ -48,7 +48,7 @@ You can specify presets by adding the settings values to your module's manifest 
 
 Known presets will be listed here:
 
-- [Example Preset](https://foundryvtt.com/packages/custom-fonts-example-preset)
+* [Example Preset](https://foundryvtt.com/packages/custom-fonts-example-preset)
 
 Please let me know if you have any questions about how to create a preset or if you have created a preset which you would like added to the list!
 
