@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.3.0 - 26 Jan 2022
+
+* Japanese localization (thanks to @Brother Sharp)
+* Change errors to warnings
+* Performance improvements
+* Now uses the same font sizes as Google Docs
+
+### Added
+
+* TinyMCE toolbar tools for text color
+* Option to create sharper text drawings without shadows or stroke (requires libWrapper) (#5)
+* Preview fonts in the Drawing Config (#10)
+* Support for font presets (see the [example preset](https://github.com/arcanistzed/custom-fonts-example-preset) and the info in the [README](https://github.com/arcanistzed/custom-fonts#presets))
+
+### Fixed
+
+* Handle empty font directory (#7)
+* Detect font in Journal Entries more effectively for the Missing Fonts feature
+* Make Missing Fonts detection optional
+* Increase compatibility by loading new fonts into TinyMCE in a more friendly way (now works with Monk's Enhanced Journals)
+* Improved local font loading method for The Forge
+* Issue with missing font detection when no UI font is set
+
 ## 0.2.1 - 11 Jan 2022
 
 ### Fixed
