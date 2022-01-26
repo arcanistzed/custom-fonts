@@ -30,7 +30,7 @@ export default class CustomFonts {
     });
 
     // Detect missing fonts
-    this.missingInDocumentDetection();
+    if (game.settings.get(CustomFonts.ID, "missingFonts")) this.missingInDocumentDetection();
 
     // Sharper text drawings
     if (game.settings.get(CustomFonts.ID, "sharperTextDrawings")) this.sharperTextDrawings();
@@ -201,7 +201,7 @@ export default class CustomFonts {
 
     // Alert if one of the UI fonts is missing
     doOnceReady(() => {
-      [primary, mono].forEach(f => {
+      if (game.settings.get(CustomFonts.ID, "missingFonts")) [primary, mono].forEach(f => {
         if (f && !document.fonts.check(`1em ${f}`)) {
           const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: game.i18n.localize("custom-fonts.notifications.missingFont.context.ui"), font: f })}`;
           ui.notifications.warn(message);

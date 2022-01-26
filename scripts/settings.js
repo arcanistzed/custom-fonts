@@ -75,4 +75,12 @@ export default function registerSettings() {
         type: Boolean,
         onChange: () => location.reload(),
     });
+    game.settings.register(CustomFonts.ID, "missingFonts", {
+        name: game.i18n.localize("custom-fonts.settings.missingFonts.name"),
+        hint: game.i18n.localize("custom-fonts.settings.missingFonts.hint"),
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+    });
 }

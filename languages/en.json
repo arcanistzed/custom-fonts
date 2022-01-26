@@ -41,6 +41,10 @@
             "sharperTextDrawings": {
                 "name": "Sharper Text Drawings",
                 "hint": "Increases the resolution of text Drawings and removes their stroke & text shadow."
+            },
+            "missingFonts": {
+                "name": "Detect Missing Fonts",
+                "hint": "Attempt to detect missing fonts which are in use and show a warning."
             }
         }
     }

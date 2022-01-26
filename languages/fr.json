@@ -41,6 +41,10 @@
             "sharperTextDrawings": {
                 "name": "Dessins de texte plus net",
                 "hint": "Augmente la résolution des Dessins de texte et enlève leur contour et ombre."
+            },
+            "missingFonts": {
+                "name": "Détecter les polices manquantes",
+                "hint": "Essaye de détecter les polices manquantes qui sont utilisées et affiche une alerte."
             }
         }
     }
