@@ -12,7 +12,9 @@
                     "journal": "un journal"
                 }
             },
-            "libWrapperRequired": "libWrapper doit être activé pour utiliser la fonctionnalité de Dessins plus net."
+            "libWrapperRequired": "libWrapper doit être activé pour utiliser la fonctionnalité de Dessins plus net.",
+            "presetLoaded": "Préréglage \"{preset}\" appliqué avec succès! Vous pouvez maintenant désactiver le module de préréglage.",
+            "invalidPreset": "Préréglage invalide \"{preset}\": {error}"
         },
         "settings": {
             "downloadCSS": {
