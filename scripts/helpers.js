@@ -24,14 +24,14 @@ export async function recursiveFontFileBrowse(directory, l = 0) {
             console.warn(message);
         });
     }
-    const files = res.files
+    const files = res?.files
         // Only use files with valid file extensions
         .filter(file => file.split("/").at(-1).match(/\.otf|\.ttf|\.woff|\.woff2/i, ""))
         // Only use the first 50
         .slice(0, 50);
 
     // Recurse if there are subdirectories
-    for (const dir of res.dirs) {
+    for (const dir of res?.dirs) {
         files.push(...await recursiveFontFileBrowse(dir, l));
         l++;
     }
