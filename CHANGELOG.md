@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 - 26 Jan 2022
+
+### Added
+
+* Clear presets button for use after you uninstall a preset
+
+### Fixed
+
+* Error with browsing files if the directory is not found
+
 ## 0.3.0 - 26 Jan 2022
 
 * Japanese localization (thanks to @Brother Sharp)
