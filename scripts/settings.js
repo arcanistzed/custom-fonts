@@ -13,6 +13,18 @@ export default function registerSettings() {
             }
         },
     });
+    game.settings.registerMenu(CustomFonts.ID, "clearPresets", {
+        name: game.i18n.localize("custom-fonts.settings.clearPresets.name"),
+        label: game.i18n.localize("custom-fonts.settings.clearPresets.label"),
+        hint: game.i18n.localize("custom-fonts.settings.clearPresets.hint"),
+        icon: "fas fa-eraser",
+        type: class extends FormApplication {
+            constructor(...args) {
+                super(...args);
+                game.settings.set(CustomFonts.ID, "presetDirectories", []);
+            }
+        },
+    });
 
     game.settings.register(CustomFonts.ID, "fonts", {
         name: game.i18n.localize("custom-fonts.settings.fonts.name"),

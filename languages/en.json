@@ -45,6 +45,11 @@
             "missingFonts": {
                 "name": "Detect Missing Fonts",
                 "hint": "Attempt to detect missing fonts which are in use and show a warning."
+            },
+            "clearPresets": {
+                "name": "Clear Presets",
+                "label": "Clear",
+                "hint": "You'll need to use this if you ever uninstall a preset after applying it and it will remove the reference to it's directory. This will mean that you'll have to re-enable the preset to take advantage of the included fonts again."
             }
         }
     }

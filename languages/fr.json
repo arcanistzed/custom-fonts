@@ -45,6 +45,11 @@
             "missingFonts": {
                 "name": "Détecter les polices manquantes",
                 "hint": "Essaye de détecter les polices manquantes qui sont utilisées et affiche une alerte."
+            },
+            "clearPresets": {
+                "name": "Effacer les préréglages",
+                "label": "Effacer",
+                "hint": "Vous aurez besoin de cela si vous désinstallez un préréglage après l'avoir appliqué et il va supprimer la référence à son répertoire. Cela signifie que vous devrez réactiver le préréglage pour profiter des polices incluses à nouveau."
             }
         }
     }
