@@ -262,31 +262,23 @@ export default class CustomFonts {
     // Register a wrapper for the Drawing create text method
     libWrapper.register(CustomFonts.ID, "Drawing.prototype._createText",
       // The following function is mostly core code. It is used under the Foundry Virtual Tabletop Limited License Agreement for module development
-      function () {
+      function (wrapped, textStyle) {
         if (this.text && !this.text._destroyed) {
           this.text.destroy();
           this.text = null;
         }
-        const isText = this.data.type === CONST.DRAWING_TYPES.TEXT;
-        const stroke = Math.max(Math.round(this.data.fontSize / 32), 2);
 
         // Define the text style
-        const textStyle = new PIXI.TextStyle({
-          fontFamily: this.data.fontFamily || CONFIG.defaultFontFamily,
-          fontSize: this.data.fontSize,
-          fill: this.data.textColor || "#FFFFFF",
-          align: isText ? "left" : "center",
-          wordWrap: !isText,
-          wordWrapWidth: 1.5 * this.data.width,
-          padding: stroke,
-          resolution: 5,
-        });
+        textStyle = new PIXI.TextStyle(mergeObject(wrapped(textStyle).style, {
+          dropShadow: false,
+          strokeThickness: 0,
+        }));
 
         // Create the text container
         const text = new PreciseText(this.data.text, textStyle);
         text.resolution = 5;
         return text;
-      }, "OVERRIDE");
+      }, "WRAPPER");
   }
 }
 
