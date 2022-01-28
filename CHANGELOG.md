@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.5.0 - 28 Jan 2022
+
+### Added
+
+* Dropdown list for the UI font settings
+
+### Fixed
+
+* Increase compatibility of the Sharper Text Drawings feature (#11)
+* Remove error when browsing for local fonts when there are no directories
+
 ## 0.4.0 - 26 Jan 2022
 
 ### Added
