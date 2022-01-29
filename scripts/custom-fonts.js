@@ -82,7 +82,7 @@ export default class CustomFonts {
       if (!directory) continue;
 
       // Get an array of all font files in the directory
-      files.concat(await recursiveFontFileBrowse(directory));
+      files.push(...await recursiveFontFileBrowse(directory));
     }
 
     // Save file list if it's different
