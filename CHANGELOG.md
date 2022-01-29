@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.1 - 29 Jan 2022
+
+### Fixed
+
+* Properly determine folder level for local file searching
+* Regression: update list of files after browsing
+
 ## 0.5.0 - 28 Jan 2022
 
 ### Added
