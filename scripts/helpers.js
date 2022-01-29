@@ -10,11 +10,10 @@ export async function recursiveFontFileBrowse(directory, l = 0) {
     if (l >= 50) return [];
 
     // Get the correct source
-    // TODO Check with KaKaRoTo if necessary
     const source = directory.startsWith(globalThis?.ForgeVTT?.ASSETS_LIBRARY_URL_PREFIX) ? "forgevtt" : "data";
 
     // Try to get the files in that directory and source 
-    let res;
+    let res = {};
     try {
         res = await FilePicker.browse(source, directory);
     } catch (err) {
@@ -31,7 +30,7 @@ export async function recursiveFontFileBrowse(directory, l = 0) {
         .slice(0, 50);
 
     // Recurse if there are subdirectories
-    if (res?.dirs) for (const dir of res.dirs) {
+    if (res.dirs) for (const dir of res.dirs) {
         files.push(...await recursiveFontFileBrowse(dir, l));
         l++;
     }
