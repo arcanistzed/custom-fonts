@@ -31,8 +31,8 @@ export async function recursiveFontFileBrowse(directory, l = 0) {
 
     // Recurse if there are subdirectories
     if (res.dirs) for (const dir of res.dirs) {
-        files.push(...await recursiveFontFileBrowse(dir, l));
         l++;
+        files.push(...await recursiveFontFileBrowse(dir, l));
     }
     return files;
 }
