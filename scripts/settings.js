@@ -2,9 +2,9 @@ import CustomFonts from "./custom-fonts.js";
 
 export default function registerSettings() {
     game.settings.registerMenu(CustomFonts.ID, "downloadCSS", {
-        name: game.i18n.localize("custom-fonts.settings.downloadCSS.name"),
-        label: game.i18n.localize("custom-fonts.settings.downloadCSS.label"),
-        hint: game.i18n.localize("custom-fonts.settings.downloadCSS.hint"),
+        name: "custom-fonts.settings.downloadCSS.name",
+        label: "custom-fonts.settings.downloadCSS.label",
+        hint: "custom-fonts.settings.downloadCSS.hint",
         icon: "fas fa-download",
         type: class extends FormApplication {
             constructor(...args) {
@@ -14,9 +14,9 @@ export default function registerSettings() {
         },
     });
     game.settings.registerMenu(CustomFonts.ID, "clearPresets", {
-        name: game.i18n.localize("custom-fonts.settings.clearPresets.name"),
-        label: game.i18n.localize("custom-fonts.settings.clearPresets.label"),
-        hint: game.i18n.localize("custom-fonts.settings.clearPresets.hint"),
+        name: "custom-fonts.settings.clearPresets.name",
+        label: "custom-fonts.settings.clearPresets.label",
+        hint: "custom-fonts.settings.clearPresets.hint",
         icon: "fas fa-eraser",
         type: class extends FormApplication {
             constructor(...args) {
@@ -27,18 +27,18 @@ export default function registerSettings() {
     });
 
     game.settings.register(CustomFonts.ID, "fonts", {
-        name: game.i18n.localize("custom-fonts.settings.fonts.name"),
-        hint: game.i18n.localize("custom-fonts.settings.fonts.hint"),
+        name: "custom-fonts.settings.fonts.name",
+        hint: "custom-fonts.settings.fonts.hint",
         scope: "world",
         config: true,
-        default: "Grenze Gotisch, Lobster, Indie Flower",
+        default: "",
         type: String,
         onChange: () => CustomFonts.init(),
     });
 
     game.settings.register(CustomFonts.ID, "directory", {
-        name: game.i18n.localize("custom-fonts.settings.directory.name"),
-        hint: game.i18n.localize("custom-fonts.settings.directory.hint"),
+        name: "custom-fonts.settings.directory.name",
+        hint: "custom-fonts.settings.directory.hint",
         scope: "world",
         config: true,
         default: "",
@@ -60,8 +60,8 @@ export default function registerSettings() {
     });
 
     game.settings.register(CustomFonts.ID, "primary", {
-        name: game.i18n.localize("custom-fonts.settings.primary.name"),
-        hint: game.i18n.localize("custom-fonts.settings.primary.hint"),
+        name: "custom-fonts.settings.primary.name",
+        hint: "custom-fonts.settings.primary.hint",
         scope: "world",
         config: true,
         default: "Signika",
@@ -69,8 +69,8 @@ export default function registerSettings() {
         onChange: () => CustomFonts.init(),
     });
     game.settings.register(CustomFonts.ID, "mono", {
-        name: game.i18n.localize("custom-fonts.settings.mono.name"),
-        hint: game.i18n.localize("custom-fonts.settings.mono.hint"),
+        name: "custom-fonts.settings.mono.name",
+        hint: "custom-fonts.settings.mono.hint",
         scope: "world",
         config: true,
         default: "monospace",
@@ -79,8 +79,8 @@ export default function registerSettings() {
     });
 
     game.settings.register(CustomFonts.ID, "sharperTextDrawings", {
-        name: game.i18n.localize("custom-fonts.settings.sharperTextDrawings.name"),
-        hint: game.i18n.localize("custom-fonts.settings.sharperTextDrawings.hint"),
+        name: "custom-fonts.settings.sharperTextDrawings.name",
+        hint: "custom-fonts.settings.sharperTextDrawings.hint",
         scope: "world",
         config: true,
         default: false,
@@ -88,8 +88,8 @@ export default function registerSettings() {
         onChange: () => location.reload(),
     });
     game.settings.register(CustomFonts.ID, "missingFonts", {
-        name: game.i18n.localize("custom-fonts.settings.missingFonts.name"),
-        hint: game.i18n.localize("custom-fonts.settings.missingFonts.hint"),
+        name: "custom-fonts.settings.missingFonts.name",
+        hint: "custom-fonts.settings.missingFonts.hint",
         scope: "world",
         config: true,
         default: false,
