@@ -61,7 +61,7 @@ export default class CustomFonts {
     // Get the document font faces
     const fontFaces = [...document.fonts];
     // Get the family of each font face
-    const fontFaceFamilies = fontFaces.map(f => f.family.replaceAll(/^\"|\"$/g, ""));
+    const fontFaceFamilies = fontFaces.map(f => decodeURI(f.family.replaceAll(/^\"|\"$/g, "")));
     // Get an array of font families without duplicates
     const fontFamilies = [...new Set(fontFaceFamilies)];
     // Return the fonts without the Font Awesome fonts
@@ -129,7 +129,7 @@ export default class CustomFonts {
     // Add each file to the CSS
     for (const file of files) {
       css += `\n@font-face {
-  font-family: "${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/i, "")}";
+  font-family: "${decodeURI(file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/i, ""))}";
   src: url(${file});
 }`;
     }
