@@ -103,24 +103,40 @@ export default class CustomFonts {
     const fontFamilies = game.settings.get(CustomFonts.ID, "fonts")
       .split(",", 100).map(val => val.trim()).filter(f => f.length);
 
-    // Construct the URL for the Google Fonts API
+    // If there are any font families
     if (fontFamilies.length) {
-      const url = `https://fonts.googleapis.com/css2?${fontFamilies.map(f => {
-        f = f.replace(" ", "+");
-        f = "family=" + f;
-        return f;
-      }).join("&")}&display=swap`;
+      if (game.settings.get(CustomFonts.ID, "googleFontsConsent")) {
+        // Construct the URL for the Google Fonts API
+        const url = `https://fonts.googleapis.com/css2?${fontFamilies.map(f => {
+          f = f.replace(" ", "+");
+          f = "family=" + f;
+          return f;
+        }).join("&")}&display=swap`;
 
-      // Fetch the font CSS from Google Fonts
-      css = await fetch(url)
-        .then(res => res.text())
-        .catch(err => {
-          doOnceReady(() => {
-            const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`;
-            ui.notifications.warn(message);
-            console.warn(message);
+        // Fetch the font CSS from Google Fonts
+        css = await fetch(url)
+          .then(res => res.text())
+          .catch(err => {
+            doOnceReady(() => {
+              const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`;
+              ui.notifications.warn(message);
+              console.warn(message);
+            });
           });
+      } else {
+        doOnceReady(() => {
+          if (!game.settings.get(CustomFonts.ID, "googleFontsConsent")) {
+            Dialog.confirm({
+              title: game.i18n.localize("custom-fonts.dialog.googleFontsConsent.title"),
+              content: game.i18n.localize("custom-fonts.dialog.googleFontsConsent.content"),
+              yes: async () => {
+                await game.settings.set(CustomFonts.ID, "googleFontsConsent", true);
+                location.reload();
+              },
+            });
+          }
         });
+      }
     }
 
     // Get the list of local files

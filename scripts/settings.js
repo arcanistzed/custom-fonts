@@ -26,6 +26,12 @@ export default function registerSettings() {
         },
     });
 
+    game.settings.register(CustomFonts.ID, "googleFontsConsent", {
+        scope: "client",
+        config: false,
+        default: false,
+        type: Boolean,
+    });
     game.settings.register(CustomFonts.ID, "fonts", {
         name: "custom-fonts.settings.fonts.name",
         hint: "custom-fonts.settings.fonts.hint",

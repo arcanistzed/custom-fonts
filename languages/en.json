@@ -51,6 +51,12 @@
                 "label": "Clear",
                 "hint": "You'll need to use this if you ever uninstall a preset after applying it and it will remove the reference to it's directory. This will mean that you'll have to re-enable the preset to take advantage of the included fonts again."
             }
+        },
+        "dialog": {
+            "googleFontsConsent": {
+                "title": "Google Fonts consent",
+                "content": "Would you like to connect to Google Fonts' servers in order to download the fonts configured for this world? Beware that this connection will provide Google with your IP address."
+            }
         }
     }
 }
