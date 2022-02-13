@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.2 - 13 Feb 2022
+
+### Fixed
+
+* Support spaces in font names
+* Require consent from each user to fetch fonts from Google Fonts
+
 ## 0.5.1 - 29 Jan 2022
 
 ### Fixed
