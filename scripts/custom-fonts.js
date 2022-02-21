@@ -21,7 +21,7 @@ export default class CustomFonts {
     });
 
     // Preview fonts in the Drawing Config
-    Hooks.on("renderDrawingConfig", (app, html) => {
+    Hooks.on("renderDrawingConfig", (_app, html) => {
       html[0].querySelectorAll("select[name='fontFamily'], select[name='fontFamily'] option").forEach(element => {
         const setFont = el => el.style.fontFamily = el.value;
         element.addEventListener("change", event => setFont(event.currentTarget));
