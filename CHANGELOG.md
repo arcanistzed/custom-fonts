@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.3 - 14 Apr 2022
+
+### Fixed
+
+The Sharper Text Drawings option now also increases the padding of text drawings which fixes some issues with large font glyphs
+
 ## 0.5.2 - 13 Feb 2022
 
 ### Fixed

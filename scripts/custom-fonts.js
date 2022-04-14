@@ -288,6 +288,7 @@ export default class CustomFonts {
         textStyle = new PIXI.TextStyle(mergeObject(wrapped(textStyle).style, {
           dropShadow: false,
           strokeThickness: 0,
+          padding: 100,
         }));
 
         // Create the text container

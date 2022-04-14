@@ -40,7 +40,7 @@
             },
             "sharperTextDrawings": {
                 "name": "Dessins de texte plus net",
-                "hint": "Augmente la résolution des Dessins de texte et enlève leur contour et ombre."
+                "hint": "Augmente la résolution des Dessins de texte, enlève leur contour & ombre, et donne assez d'espace au texte pour les glyphes plus grands."
             },
             "missingFonts": {
                 "name": "Détecter les polices manquantes",
