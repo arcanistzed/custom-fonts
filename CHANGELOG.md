@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.4 - 9 May 2022
+
+### Fixed
+
+* Adjust Google Fonts consent dialog text to clarify the consequences of refusing
+* Localize dialog text to French
+
 ## 0.5.3 - 14 Apr 2022
 
 ### Fixed
