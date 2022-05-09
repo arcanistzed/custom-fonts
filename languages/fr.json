@@ -50,6 +50,12 @@
                 "name": "Effacer les préréglages",
                 "label": "Effacer",
                 "hint": "Vous aurez besoin de cela si vous désinstallez un préréglage après l'avoir appliqué et il va supprimer la référence à son répertoire. Cela signifie que vous devrez réactiver le préréglage pour profiter des polices incluses à nouveau."
+            },
+            "dialog": {
+                "googleFontsConsent": {
+                    "title": "Consentement Google Fonts",
+                    "content": "Souhaitez-vous vous connecter aux serveurs Google Fonts afin de télécharger les polices configurées pour ce monde ? Attention, cette connexion fournit à Google votre adresse IP. Certains éléments ne seront pas comme souhaiter par votre maître de jeu, ce qui peut réduire considérablement votre expérience."
+                }
             }
         }
     }

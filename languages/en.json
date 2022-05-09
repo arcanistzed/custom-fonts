@@ -55,7 +55,7 @@
         "dialog": {
             "googleFontsConsent": {
                 "title": "Google Fonts consent",
-                "content": "Would you like to connect to Google Fonts' servers in order to download the fonts configured for this world? Beware that this connection will provide Google with your IP address."
+                "content": "Would you like to connect to Google Fonts' servers in order to download the fonts configured for this world? Beware that this connection will provide Google with your IP address. Refusing this can severely diminish your experience as some things won't look as intended."
             }
         }
     }
