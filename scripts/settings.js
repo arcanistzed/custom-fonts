@@ -101,6 +101,14 @@ export default function registerSettings() {
         default: false,
         type: Boolean,
     });
+    game.settings.register(CustomFonts.ID, "diceSoNice", {
+		name: "custom-fonts.settings.diceSoNice.name",
+		hint: "custom-fonts.settings.diceSoNice.hint",
+		scope: "world",
+		config: true,
+		default: true,
+		type: Boolean,
+	});
 
     // Use data lists for the UI fonts
     Hooks.on("renderSettingsConfig", (_app, html) => {

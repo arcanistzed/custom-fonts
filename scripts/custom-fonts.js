@@ -43,7 +43,9 @@ export default class CustomFonts {
     doOnceReady(() => { if (game.user?.isGM) CustomFonts.updateFileList(); });
     await CustomFonts.dom();
     CustomFonts.config();
-    Hooks.once("diceSoNiceReady", CustomFonts.diceSoNice);
+    Hooks.once("diceSoNiceReady", () => {
+      if (game.settings.get(CustomFonts.ID, "diceSoNice")) CustomFonts.diceSoNice();
+    });
     await CustomFonts.tinyMCE();
     CustomFonts.applyUIFonts();
   }
@@ -243,7 +245,7 @@ export default class CustomFonts {
             console.warn(message);
           }
         } catch (err) {
-          console.error(err);
+          console.warn(err);
         }
       });
     }

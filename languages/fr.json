@@ -51,6 +51,10 @@
                 "label": "Effacer",
                 "hint": "Vous aurez besoin de cela si vous désinstallez un préréglage après l'avoir appliqué et il va supprimer la référence à son répertoire. Cela signifie que vous devrez réactiver le préréglage pour profiter des polices incluses à nouveau."
             },
+            "diceSoNice": {
+                "name": "Intégration avec Dice so Nice",
+                "fr": "Enregistrer toutes les polices avec Dice so Nice. Attention, cela peut causer des problèmes si vous avez beaucoup de polices car DSN impose un limite de temps."
+            },
             "dialog": {
                 "googleFontsConsent": {
                     "title": "Consentement Google Fonts",
