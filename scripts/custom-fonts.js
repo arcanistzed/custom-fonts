@@ -59,16 +59,21 @@ export default class CustomFonts {
   /** List all loaded and available fonts
    * @return {Array<string>} An array of all loaded fonts (excluding Font Awesome fonts)
    */
-  static list() {
+  static get list() {
+    // Memoize the list
+    if (CustomFonts.#list) return CustomFonts.#list;
+
     // Get the document font faces
     const fontFaces = [...document.fonts];
     // Get the family of each font face
     const fontFaceFamilies = fontFaces.map(f => decodeURI(f.family.replaceAll(/^\"|\"$/g, "")));
     // Get an array of font families without duplicates
     const fontFamilies = [...new Set(fontFaceFamilies)];
-    // Return the fonts without the Font Awesome fonts
-    return fontFamilies.filter(f => !f.includes("Font Awesome"));
+    // Filter out the Font Awesome fonts
+    CustomFonts.#list = fontFamilies.filter(f => !f.includes("Font Awesome"));
+    return CustomFonts.#list;
   }
+  static #list;
 
   /** Update the list of files available to fetch by browsing user data
    * @returns {string[]} The list of files
@@ -157,7 +162,7 @@ export default class CustomFonts {
   /** Add the fonts to the core CONFIG */
   static config() {
     // List the fonts and then add each one to Foundry's list of font families if it isn't there
-    CustomFonts.list().forEach(f => {
+    CustomFonts.list.forEach(f => {
       if (!CONFIG.fontFamilies.includes(f)) CONFIG.fontFamilies.push(f);
     });
 
@@ -200,7 +205,7 @@ export default class CustomFonts {
       if (parts[0]) obj[parts[0]] = parts[1];
       return obj;
     }, {});
-    mergeObject(font_formats, Object.fromEntries(game.modules.get("custom-fonts").api.list().map(k => [k, k])));
+    mergeObject(font_formats, Object.fromEntries(CustomFonts.list.map(k => [k, k])));
     CONFIG.TinyMCE.font_formats = Object.entries(font_formats).map(([k, v]) => k + "=" + v).join(";");
 
     // Add Google Docs font sizes

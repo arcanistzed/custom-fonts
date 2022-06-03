@@ -124,7 +124,7 @@ export default function registerSettings() {
         html[0].append(datalist);
 
         // Add options to the data list
-        CustomFonts.list().forEach(font => {
+        CustomFonts.list.forEach(font => {
             const option = document.createElement("option");
             option.value = font;
             datalist.append(option);
