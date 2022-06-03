@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.5.5 - 3 Jun 2022
+
+### Fixed
+
+* Dice so Nice font registration should no longer throw errors with lots of fonts
+* Option to disable Dice so Nice integration
+* Works with v10 prototype 2 (no more invalid settings data)
+* Font list is memoized for better performance
+* Missing fonts detection feature now only evaluates registered fonts
+* Font family names containing numbers should work better
+
 ## 0.5.4 - 9 May 2022
 
 ### Fixed
