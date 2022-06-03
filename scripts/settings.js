@@ -61,6 +61,7 @@ export default function registerSettings() {
     game.settings.register(CustomFonts.ID, "localFiles", {
         scope: "world",
         config: false,
+        default: [],
         type: Array,
         onChange: () => CustomFonts.init(),
     });
