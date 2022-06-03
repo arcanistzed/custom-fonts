@@ -14,7 +14,8 @@
             },
             "libWrapperRequired": "libWrapper must be enabled to use the sharper text drawings functionality.",
             "presetLoaded": "Preset \"{preset}\" succesfully applied! You may now disable the preset module.",
-            "invalidPreset": "Invalid preset \"{preset}\": {error}"
+            "invalidPreset": "Invalid preset \"{preset}\": {error}",
+            "dsnFailedToRegister": "Failed to register font \"{font}\" with Dice so Nice: {error}"
         },
         "settings": {
             "downloadCSS": {

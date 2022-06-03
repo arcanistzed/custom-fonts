@@ -43,8 +43,8 @@ export default class CustomFonts {
     doOnceReady(() => { if (game.user?.isGM) CustomFonts.updateFileList(); });
     await CustomFonts.dom();
     CustomFonts.config();
-    Hooks.once("diceSoNiceReady", () => {
-      if (game.settings.get(CustomFonts.ID, "diceSoNice")) CustomFonts.diceSoNice();
+    Hooks.once("diceSoNiceReady", dice3d => {
+      if (game.settings.get(CustomFonts.ID, "diceSoNice")) CustomFonts.diceSoNice(dice3d);
     });
     await CustomFonts.tinyMCE();
     CustomFonts.applyUIFonts();
@@ -172,10 +172,20 @@ export default class CustomFonts {
 
   /** Add the fonts to Dice so Nice */
   static diceSoNice(dice3d) {
-    CustomFonts.list().forEach(font => dice3d.addColorset({
-      font: font,
-      visibility: "hidden",
-    }));
+    CustomFonts.list.forEach(async f => {
+      try {
+        await document.fonts.load(`1em "${f}"`);
+        
+        dice3d.addColorset({
+          font: f,
+          visibility: "hidden",
+        });
+      } catch (error) {
+        const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.dsnFailedToRegister", { font: f, error })}`;
+        ui.notifications.warn(message);
+        console.warn(message);
+      }
+    });
   }
 
   /** Add the fonts to the DOM */

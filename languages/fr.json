@@ -14,7 +14,8 @@
             },
             "libWrapperRequired": "libWrapper doit être activé pour utiliser la fonctionnalité de Dessins plus net.",
             "presetLoaded": "Préréglage \"{preset}\" appliqué avec succès! Vous pouvez maintenant désactiver le module de préréglage.",
-            "invalidPreset": "Préréglage invalide \"{preset}\": {error}"
+            "invalidPreset": "Préréglage invalide \"{preset}\": {error}",
+            "dsnFailedToRegister": "Échec de l'enregistrement de la police \"{font}\" avec Dice so Nice: {error}"
         },
         "settings": {
             "downloadCSS": {
@@ -53,7 +54,7 @@
             },
             "diceSoNice": {
                 "name": "Intégration avec Dice so Nice",
-                "fr": "Enregistrer toutes les polices avec Dice so Nice. Attention, cela peut causer des problèmes si vous avez beaucoup de polices car DSN impose un limite de temps."
+                "hint": "Enregistrer toutes les polices avec Dice so Nice. Attention, cela peut causer des problèmes si vous avez beaucoup de polices car DSN impose un limite de temps."
             },
             "dialog": {
                 "googleFontsConsent": {
