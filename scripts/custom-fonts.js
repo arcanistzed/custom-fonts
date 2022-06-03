@@ -264,6 +264,7 @@ export default class CustomFonts {
     // Detect if the viewed Journal Entry has missing fonts
     Hooks.on("renderJournalSheet", (app, html) => {
       [...html[0].innerHTML.matchAll(/(?<=\<span style="font-family:)[^";,]*/g)].map(r => r[0])
+        .filter(font => CustomFonts.list.includes(font))
         .forEach(font => detect(font, "journal", app.object.id));
     });
   }
