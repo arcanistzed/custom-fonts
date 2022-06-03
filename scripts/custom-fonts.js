@@ -23,7 +23,7 @@ export default class CustomFonts {
     // Preview fonts in the Drawing Config
     Hooks.on("renderDrawingConfig", (_app, html) => {
       html[0].querySelectorAll("select[name='fontFamily'], select[name='fontFamily'] option").forEach(element => {
-        const setFont = el => el.style.fontFamily = el.value;
+        const setFont = el => el.style.fontFamily = `"${el.value}"`;
         element.addEventListener("change", event => setFont(event.currentTarget));
         setFont(element);
       });
@@ -225,7 +225,7 @@ export default class CustomFonts {
     // Alert if one of the UI fonts is missing
     doOnceReady(() => {
       if (game.settings.get(CustomFonts.ID, "missingFonts")) [primary, mono].forEach(f => {
-        if (f && !document.fonts.check(`1em ${f}`)) {
+        if (f && !document.fonts.check(`1em "${f}"`)) {
           const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: game.i18n.localize("custom-fonts.notifications.missingFont.context.ui"), font: f })}`;
           ui.notifications.warn(message);
           console.warn(message);
@@ -244,7 +244,7 @@ export default class CustomFonts {
     function detect(font, doc, id = "") {
       doOnceReady(() => {
         try {
-          if (!document.fonts.check(`1em ${font}`)) {
+          if (!document.fonts.check(`1em "${font}"`)) {
             const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${doc}`)} [${id}]`, font: font })}`;
             ui.notifications.warn(message);
             console.warn(message);
