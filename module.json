@@ -2,21 +2,27 @@
   "name": "custom-fonts",
   "title": "Custom Fonts",
   "description": "Facilitates using Custom Fonts in Journal Entries, Text Drawings on the canvas, or for the entire UI! You can upload your own font or load a font directly from Google Fonts.",
-  "version": "This is auto replaced",
-  "manifestPlusVersion": "1.2.0",
-  "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": 9,
-  "library": true,
-  "author": "arcanist",
+  "author": "Arcanist",
   "authors": [
     {
-      "name": "arcanist",
+      "name": "Arcanist",
       "url": "https://arcanistzed.github.io/",
       "email": "arcanistzed@gmail.com",
       "discord": "arcanist#4317",
       "reddit": "u/arcanistzed"
     }
   ],
+  "url": "This is auto replaced",
+  "license": "https://github.com/arcanistzed/custom-fonts/blob/main/LICENSE",
+  "readme": "https://github.com/arcanistzed/custom-fonts/blob/main/README.md",
+  "bugs": "https://github.com/arcanistzed/custom-fonts/issues/new/choose",
+  "changelog": "https://github.com/arcanistzed/custom-fonts/blob/main/CHANGELOG.md",
+  "flags": {
+    "allowBugReporter": true
+  },
+  "version": "This is auto replaced",
+  "minimumCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "9",
   "esmodules": [
     "scripts/custom-fonts.js"
   ],
@@ -45,13 +51,10 @@
       "path": "languages/ja.json"
     }
   ],
-  "url": "This is auto replaced",
   "manifest": "This is auto replaced",
   "download": "This is auto replaced",
-  "readme": "https://github.com/arcanistzed/custom-fonts/blob/main/README.md",
-  "changelog": "https://github.com/arcanistzed/custom-fonts/blob/main/CHANGELOG.md",
-  "license": "https://github.com/arcanistzed/custom-fonts/blob/main/LICENSE",
-  "bugs": "https://github.com/arcanistzed/custom-fonts/issues/new/choose",
+  "library": true,
+  "manifestPlusVersion": "1.2.0",
   "media": [
     {
       "type": "screenshot",

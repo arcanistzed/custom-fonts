@@ -12,7 +12,10 @@
                     "journal": "a Journal Entry"
                 }
             },
-            "libWrapperRequired": "libWrapper must be enabled to use the sharper text drawings functionality."
+            "libWrapperRequired": "libWrapper must be enabled to use the sharper text drawings functionality.",
+            "presetLoaded": "Preset \"{preset}\" succesfully applied! You may now disable the preset module.",
+            "invalidPreset": "Invalid preset \"{preset}\": {error}",
+            "dsnFailedToRegister": "Failed to register font \"{font}\" with Dice so Nice: {error}"
         },
         "settings": {
             "downloadCSS": {
@@ -25,8 +28,8 @@
                 "hint": "Font families to load from Google Fonts, separated with commas (,)."
             },
             "directory": {
-                "name": "Font files to upload",
-                "hint": "Directory to load fonts from. Any .otf, .ttf, .woff, or .woff2 files in this directory will be loaded."
+                "name": "Local font directory",
+                "hint": "Any .otf, .ttf, .woff, or .woff2 files in this directory will be loaded."
             },
             "primary": {
                 "name": "Primary font",
@@ -38,7 +41,26 @@
             },
             "sharperTextDrawings": {
                 "name": "Sharper Text Drawings",
-                "hint": "Increases the resolution of text Drawings and removes their stroke & text shadow."
+                "hint": "Increases the resolution of text Drawings, removes their stroke & text shadow, and gives the text adequate padding for larger glyphs."
+            },
+            "missingFonts": {
+                "name": "Detect Missing Fonts",
+                "hint": "Attempt to detect missing fonts which are in use and show a warning."
+            },
+            "clearPresets": {
+                "name": "Clear Presets",
+                "label": "Clear",
+                "hint": "You'll need to use this if you ever uninstall a preset after applying it and it will remove the reference to it's directory. This will mean that you'll have to re-enable the preset to take advantage of the included fonts again."
+            },
+            "diceSoNice": {
+                "name": "Dice so Nice integration",
+                "hint": "Register all fonts with Dice so Nice. Beware that this can cause issues if you have lots of fonts since DSN imposes a time limit."
+            }
+        },
+        "dialog": {
+            "googleFontsConsent": {
+                "title": "Google Fonts consent",
+                "content": "Would you like to connect to Google Fonts' servers in order to download the fonts configured for this world? Beware that this connection will provide Google with your IP address. Refusing this can severely diminish your experience as some things won't look as intended."
             }
         }
     }

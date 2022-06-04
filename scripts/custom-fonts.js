@@ -1,4 +1,5 @@
-import { recursiveFileBrowse, doOnceReady } from "./helpers.js";
+import { recursiveFontFileBrowse, doOnceReady } from "./helpers.js";
+import registerPresets from "./presets.js";
 import registerSettings from "./settings.js";
 
 export default class CustomFonts {
@@ -6,7 +7,10 @@ export default class CustomFonts {
     registerSettings();
 
     // Add the module's API
-    game.modules.get("custom-fonts").api = CustomFonts;
+    game.modules.get(CustomFonts.ID).api = CustomFonts;
+
+    // Register presets
+    doOnceReady(() => { if (game.user.isGM) registerPresets(); });
 
     // Redraw drawings when their font family is updated
     Hooks.on("updateDrawing", async (doc, change) => {
@@ -16,8 +20,17 @@ export default class CustomFonts {
       }
     });
 
+    // Preview fonts in the Drawing Config
+    Hooks.on("renderDrawingConfig", (_app, html) => {
+      html[0].querySelectorAll("select[name='fontFamily'], select[name='fontFamily'] option").forEach(element => {
+        const setFont = el => el.style.fontFamily = `"${el.value}"`;
+        element.addEventListener("change", event => setFont(event.currentTarget));
+        setFont(element);
+      });
+    });
+
     // Detect missing fonts
-    this.missingInDocumentDetection();
+    if (game.settings.get(CustomFonts.ID, "missingFonts")) this.missingInDocumentDetection();
 
     // Sharper text drawings
     if (game.settings.get(CustomFonts.ID, "sharperTextDrawings")) this.sharperTextDrawings();
@@ -30,7 +43,9 @@ export default class CustomFonts {
     doOnceReady(() => { if (game.user?.isGM) CustomFonts.updateFileList(); });
     await CustomFonts.dom();
     CustomFonts.config();
-    Hooks.once("diceSoNiceReady", CustomFonts.diceSoNice);
+    Hooks.once("diceSoNiceReady", dice3d => {
+      if (game.settings.get(CustomFonts.ID, "diceSoNice")) CustomFonts.diceSoNice(dice3d);
+    });
     await CustomFonts.tinyMCE();
     CustomFonts.applyUIFonts();
   }
@@ -38,37 +53,43 @@ export default class CustomFonts {
   /** The module's ID */
   static ID = "custom-fonts";
 
+  /** Registered presets */
+  static get presets() { return registerPresets(); };
+
   /** List all loaded and available fonts
    * @return {Array<string>} An array of all loaded fonts (excluding Font Awesome fonts)
    */
-  static list() {
+  static get list() {
+    // Memoize the list
+    if (CustomFonts.#list) return CustomFonts.#list;
+
     // Get the document font faces
     const fontFaces = [...document.fonts];
     // Get the family of each font face
-    const fontFaceFamilies = fontFaces.map(f => f.family.replaceAll(/^\"|\"$/g, ""));
+    const fontFaceFamilies = fontFaces.map(f => decodeURI(f.family.replaceAll(/^\"|\"$/g, "")));
     // Get an array of font families without duplicates
     const fontFamilies = [...new Set(fontFaceFamilies)];
-    // Return the fonts without the Font Awesome fonts
-    return fontFamilies.filter(f => !f.includes("Font Awesome"));
+    // Filter out the Font Awesome fonts
+    CustomFonts.#list = fontFamilies.filter(f => !f.includes("Font Awesome"));
+    return CustomFonts.#list;
   }
+  static #list;
 
   /** Update the list of files available to fetch by browsing user data
    * @returns {string[]} The list of files
    */
   static async updateFileList() {
-    // Try to get the list of files in the directory
     let files = [];
-    try {
-      // Get the custom directory from settings
-      const directory = game.settings.get(CustomFonts.ID, "directory");
-      // Get an array of all files in the directory and it's subdirectories
-      files = directory ? await recursiveFileBrowse(directory) : [];
-    } catch (err) {
-      doOnceReady(() => {
-        const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.invalidDirectory", { error: err })}`;
-        ui.notifications.warn(message);
-        console.warn(message);
-      });
+
+    // Get all font directories
+    const directories = [game.settings.get(CustomFonts.ID, "directory"), ...game.settings.get(CustomFonts.ID, "presetDirectories")];
+
+    // Go through each directory
+    for (const directory of directories) {
+      if (!directory) continue;
+
+      // Get an array of all font files in the directory
+      files.push(...await recursiveFontFileBrowse(directory));
     }
 
     // Save file list if it's different
@@ -89,24 +110,40 @@ export default class CustomFonts {
     const fontFamilies = game.settings.get(CustomFonts.ID, "fonts")
       .split(",", 100).map(val => val.trim()).filter(f => f.length);
 
-    // Construct the URL for the Google Fonts API
+    // If there are any font families
     if (fontFamilies.length) {
-      const url = `https://fonts.googleapis.com/css2?${fontFamilies.map(f => {
-        f = f.replace(" ", "+");
-        f = "family=" + f;
-        return f;
-      }).join("&")}&display=swap`;
+      if (game.settings.get(CustomFonts.ID, "googleFontsConsent")) {
+        // Construct the URL for the Google Fonts API
+        const url = `https://fonts.googleapis.com/css2?${fontFamilies.map(f => {
+          f = f.replace(" ", "+");
+          f = "family=" + f;
+          return f;
+        }).join("&")}&display=swap`;
 
-      // Fetch the font CSS from Google Fonts
-      css = await fetch(url)
-        .then(res => res.text())
-        .catch(err => {
-          doOnceReady(() => {
-            const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`;
-            ui.notifications.warn(message);
-            console.warn(message);
+        // Fetch the font CSS from Google Fonts
+        css = await fetch(url)
+          .then(res => res.text())
+          .catch(err => {
+            doOnceReady(() => {
+              const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.connectionError", { error: err })}`;
+              ui.notifications.warn(message);
+              console.warn(message);
+            });
           });
+      } else {
+        doOnceReady(() => {
+          if (!game.settings.get(CustomFonts.ID, "googleFontsConsent")) {
+            Dialog.confirm({
+              title: game.i18n.localize("custom-fonts.dialog.googleFontsConsent.title"),
+              content: game.i18n.localize("custom-fonts.dialog.googleFontsConsent.content"),
+              yes: async () => {
+                await game.settings.set(CustomFonts.ID, "googleFontsConsent", true);
+                location.reload();
+              },
+            });
+          }
         });
+      }
     }
 
     // Get the list of local files
@@ -115,7 +152,7 @@ export default class CustomFonts {
     // Add each file to the CSS
     for (const file of files) {
       css += `\n@font-face {
-  font-family: "${file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/i, "")}";
+  font-family: "${decodeURI(file.split("/").at(-1).replace(/\.otf|\.ttf|\.woff|\.woff2/i, ""))}";
   src: url(${file});
 }`;
     }
@@ -125,7 +162,7 @@ export default class CustomFonts {
   /** Add the fonts to the core CONFIG */
   static config() {
     // List the fonts and then add each one to Foundry's list of font families if it isn't there
-    CustomFonts.list().forEach(f => {
+    CustomFonts.list.forEach(f => {
       if (!CONFIG.fontFamilies.includes(f)) CONFIG.fontFamilies.push(f);
     });
 
@@ -135,10 +172,20 @@ export default class CustomFonts {
 
   /** Add the fonts to Dice so Nice */
   static diceSoNice(dice3d) {
-    CustomFonts.list().forEach(font => dice3d.addColorset({
-      font: font,
-      visibility: "hidden",
-    }));
+    CustomFonts.list.forEach(async f => {
+      try {
+        await document.fonts.load(`1em "${f}"`);
+        
+        dice3d.addColorset({
+          font: f,
+          visibility: "hidden",
+        });
+      } catch (error) {
+        const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.dsnFailedToRegister", { font: f, error })}`;
+        ui.notifications.warn(message);
+        console.warn(message);
+      }
+    });
   }
 
   /** Add the fonts to the DOM */
@@ -168,7 +215,7 @@ export default class CustomFonts {
       if (parts[0]) obj[parts[0]] = parts[1];
       return obj;
     }, {});
-    mergeObject(font_formats, Object.fromEntries(game.modules.get("custom-fonts").api.list().map(k => [k, k])));
+    mergeObject(font_formats, Object.fromEntries(CustomFonts.list.map(k => [k, k])));
     CONFIG.TinyMCE.font_formats = Object.entries(font_formats).map(([k, v]) => k + "=" + v).join(";");
 
     // Add Google Docs font sizes
@@ -187,8 +234,8 @@ export default class CustomFonts {
 
     // Alert if one of the UI fonts is missing
     doOnceReady(() => {
-      [primary, mono].forEach(f => {
-        if (!document.fonts.check(`1em ${f}`)) {
+      if (game.settings.get(CustomFonts.ID, "missingFonts")) [primary, mono].forEach(f => {
+        if (f && !document.fonts.check(`1em "${f}"`)) {
           const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: game.i18n.localize("custom-fonts.notifications.missingFont.context.ui"), font: f })}`;
           ui.notifications.warn(message);
           console.warn(message);
@@ -207,13 +254,13 @@ export default class CustomFonts {
     function detect(font, doc, id = "") {
       doOnceReady(() => {
         try {
-          if (!document.fonts.check(`1em ${font}`)) {
+          if (!document.fonts.check(`1em "${font}"`)) {
             const message = `${CustomFonts.ID} | ${game.i18n.format("custom-fonts.notifications.missingFont.message", { context: `${game.i18n.localize(`custom-fonts.notifications.missingFont.context.${doc}`)} [${id}]`, font: font })}`;
             ui.notifications.warn(message);
             console.warn(message);
           }
         } catch (err) {
-          console.error(err);
+          console.warn(err);
         }
       });
     }
@@ -227,6 +274,7 @@ export default class CustomFonts {
     // Detect if the viewed Journal Entry has missing fonts
     Hooks.on("renderJournalSheet", (app, html) => {
       [...html[0].innerHTML.matchAll(/(?<=\<span style="font-family:)[^";,]*/g)].map(r => r[0])
+        .filter(font => CustomFonts.list.includes(font))
         .forEach(font => detect(font, "journal", app.object.id));
     });
   }
@@ -248,31 +296,24 @@ export default class CustomFonts {
     // Register a wrapper for the Drawing create text method
     libWrapper.register(CustomFonts.ID, "Drawing.prototype._createText",
       // The following function is mostly core code. It is used under the Foundry Virtual Tabletop Limited License Agreement for module development
-      function () {
+      function (wrapped, textStyle) {
         if (this.text && !this.text._destroyed) {
           this.text.destroy();
           this.text = null;
         }
-        const isText = this.data.type === CONST.DRAWING_TYPES.TEXT;
-        const stroke = Math.max(Math.round(this.data.fontSize / 32), 2);
 
         // Define the text style
-        const textStyle = new PIXI.TextStyle({
-          fontFamily: this.data.fontFamily || CONFIG.defaultFontFamily,
-          fontSize: this.data.fontSize,
-          fill: this.data.textColor || "#FFFFFF",
-          align: isText ? "left" : "center",
-          wordWrap: !isText,
-          wordWrapWidth: 1.5 * this.data.width,
-          padding: stroke,
-          resolution: 5,
-        });
+        textStyle = new PIXI.TextStyle(mergeObject(wrapped(textStyle).style, {
+          dropShadow: false,
+          strokeThickness: 0,
+          padding: 100,
+        }));
 
         // Create the text container
         const text = new PreciseText(this.data.text, textStyle);
         text.resolution = 5;
         return text;
-      }, "OVERRIDE");
+      }, "WRAPPER");
   }
 }
 
