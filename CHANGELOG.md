@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.0 - 2 Jul 2022
+
+### Added
+
+Update Japanese localization (thanks to touge & BrotherSharper)
+
 ## 0.6.0 - 2 Jul 2022
 
 ### Added
