@@ -56,6 +56,10 @@
                 "name": "Intégration avec Dice so Nice",
                 "hint": "Enregistrer toutes les polices avec Dice so Nice. Attention, cela peut causer des problèmes si vous avez beaucoup de polices car DSN impose un limite de temps."
             },
+            "forcePrimaryFont": {
+                "name": "Force l'utilisation de la police principale",
+                "hint": "Utilisez la police principale que vous avez configuré pour tout. Cela va complètement remplacer les polices de tous les autres modules et du système de jeu."
+            },
             "dialog": {
                 "googleFontsConsent": {
                     "title": "Consentement Google Fonts",

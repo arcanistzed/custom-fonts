@@ -200,6 +200,11 @@ export default class CustomFonts {
     // Insert the generated CSS into the style element
     element.innerHTML = await CustomFonts.generateCSS();
 
+    // Force the primary font if enabled
+    if (game.settings.get(CustomFonts.ID, "forcePrimaryFont")) {
+      element.innerHTML += `\n*, *::before, *::after { font-family: var(--font-primary)!important; }`;
+    }
+
     // Add the style element to the document head
     document.head.appendChild(element);
   }
@@ -228,7 +233,7 @@ export default class CustomFonts {
   /** Apply the fonts to the CSS variables which control the font of the entire UI */
   static applyUIFonts() {
     const primary = game.settings.get(CustomFonts.ID, "primary");
-    document.querySelector(":root").style.setProperty("--font-primary", primary);
+    document.querySelector(":root").style.setProperty("--font-primary", `${primary}, "Font Awesome 5 Free"`);
     const mono = game.settings.get(CustomFonts.ID, "mono");
     document.querySelector(":root").style.setProperty("--font-mono", mono);
 

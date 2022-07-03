@@ -55,6 +55,10 @@
             "diceSoNice": {
                 "name": "Dice so Nice integration",
                 "hint": "Register all fonts with Dice so Nice. Beware that this can cause issues if you have lots of fonts since DSN imposes a time limit."
+            },
+            "forcePrimaryFont": {
+                "name": "Force Primary Font",
+                "hint": "Use the primary font you have configured everywhere. This will completely override any fonts from other modules or your game system."
             }
         },
         "dialog": {

@@ -109,7 +109,15 @@ export default function registerSettings() {
 		config: true,
 		default: true,
 		type: Boolean,
-	});
+    });
+    game.settings.register(CustomFonts.ID, "forcePrimaryFont", {
+        name: "custom-fonts.settings.forcePrimaryFont.name",
+        hint: "custom-fonts.settings.forcePrimaryFont.hint",
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean,
+    });
 
     // Use data lists for the UI fonts
     Hooks.on("renderSettingsConfig", (_app, html) => {

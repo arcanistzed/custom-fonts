@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0 - 2 Jul 2022
+
+### Added
+
+Option to forcefully apply the configured primary font everywhere
+
 ## 0.5.5 - 3 Jun 2022
 
 ### Fixed
