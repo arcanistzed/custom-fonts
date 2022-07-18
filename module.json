@@ -1,69 +1,69 @@
 {
-  "name": "custom-fonts",
-  "title": "Custom Fonts",
-  "description": "Facilitates using Custom Fonts in Journal Entries, Text Drawings on the canvas, or for the entire UI! You can upload your own font or load a font directly from Google Fonts.",
-  "author": "Arcanist",
-  "authors": [
-    {
-      "name": "Arcanist",
-      "url": "https://arcanist.me",
-      "email": "arcanistzed@gmail.com",
-      "discord": "arcanist#4317",
-      "reddit": "u/arcanistzed"
-    }
-  ],
-  "url": "This is auto replaced",
-  "license": "https://github.com/arcanistzed/custom-fonts/blob/main/LICENSE",
-  "readme": "https://github.com/arcanistzed/custom-fonts/blob/main/README.md",
-  "bugs": "https://github.com/arcanistzed/custom-fonts/issues/new/choose",
-  "changelog": "https://github.com/arcanistzed/custom-fonts/blob/main/CHANGELOG.md",
-  "flags": {
-    "allowBugReporter": true
-  },
-  "version": "This is auto replaced",
-  "compatibility": {
-    "minimum": "0.7.9",
-    "verified": "10"
-  },
-  "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "10",
-  "esmodules": [
-    "scripts/custom-fonts.js"
-  ],
-  "styles": [
-    "styles/custom-fonts.css"
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "languages/en.json"
+    "name": "custom-fonts",
+    "title": "Custom Fonts",
+    "description": "Facilitates using Custom Fonts in Journal Entries, Text Drawings on the canvas, or for the entire UI! You can upload your own font or load a font directly from Google Fonts.",
+    "author": "Arcanist",
+    "authors": [
+        {
+            "name": "Arcanist",
+            "url": "https://arcanist.me",
+            "email": "arcanistzed@gmail.com",
+            "discord": "arcanist#4317",
+            "reddit": "u/arcanistzed"
+        }
+    ],
+    "url": "This is auto replaced",
+    "license": "https://github.com/arcanistzed/custom-fonts/blob/main/LICENSE",
+    "readme": "https://github.com/arcanistzed/custom-fonts/blob/main/README.md",
+    "bugs": "https://github.com/arcanistzed/custom-fonts/issues/new/choose",
+    "changelog": "https://github.com/arcanistzed/custom-fonts/blob/main/CHANGELOG.md",
+    "flags": {
+        "allowBugReporter": true
     },
-    {
-      "lang": "pl",
-      "name": "Polski",
-      "path": "languages/pl.json"
+    "version": "This is auto replaced",
+    "compatibility": {
+        "minimum": "0.7.9",
+        "verified": "10"
     },
-    {
-      "lang": "fr",
-      "name": "Français",
-      "path": "languages/fr.json"
-    },
-    {
-      "lang": "ja",
-      "name": "日本語",
-      "path": "languages/ja.json"
-    }
-  ],
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
-  "library": true,
-  "manifestPlusVersion": "1.2.0",
-  "media": [
-    {
-      "type": "screenshot",
-      "url": "https://cdn.discordapp.com/attachments/927033716885307462/927714077889945660/open-dyslexic.png",
-      "caption": "Using Custom Fonts with Open Dyslexic which is uploaded by the user"
-    }
-  ]
+    "minimumCoreVersion": "0.7.9",
+    "compatibleCoreVersion": "10",
+    "esmodules": [
+        "scripts/custom-fonts.js"
+    ],
+    "styles": [
+        "styles/custom-fonts.css"
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "languages/en.json"
+        },
+        {
+            "lang": "pl",
+            "name": "Polski",
+            "path": "languages/pl.json"
+        },
+        {
+            "lang": "fr",
+            "name": "Français",
+            "path": "languages/fr.json"
+        },
+        {
+            "lang": "ja",
+            "name": "日本語",
+            "path": "languages/ja.json"
+        }
+    ],
+    "manifest": "This is auto replaced",
+    "download": "This is auto replaced",
+    "library": true,
+    "manifestPlusVersion": "1.2.0",
+    "media": [
+        {
+            "type": "screenshot",
+            "url": "https://cdn.discordapp.com/attachments/927033716885307462/927714077889945660/open-dyslexic.png",
+            "caption": "Using Custom Fonts with Open Dyslexic which is uploaded by the user"
+        }
+    ]
 }
