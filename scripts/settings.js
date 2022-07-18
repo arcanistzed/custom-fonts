@@ -120,23 +120,25 @@ export default function registerSettings() {
     });
 
     // Use data lists for the UI fonts
-    Hooks.on("renderSettingsConfig", (_app, html) => {
-        // Set the inputs to use the data list
-        const primary = html[0].querySelector("[name='custom-fonts.primary']");
-        const monospace = html[0].querySelector("[name='custom-fonts.mono']");
-        primary.setAttribute("list", "custom-fonts-data");
-        monospace.setAttribute("list", "custom-fonts-data");
+    if (game.user.isGM) {
+        Hooks.on("renderSettingsConfig", (_app, html) => {
+            // Set the inputs to use the data list
+            const primary = html[0].querySelector("[name='custom-fonts.primary']");
+            const monospace = html[0].querySelector("[name='custom-fonts.mono']");
+            primary.setAttribute("list", "custom-fonts-data");
+            monospace.setAttribute("list", "custom-fonts-data");
 
-        // Create a data list
-        const datalist = document.createElement("datalist");
-        datalist.id = "custom-fonts-data";
-        html[0].append(datalist);
+            // Create a data list
+            const datalist = document.createElement("datalist");
+            datalist.id = "custom-fonts-data";
+            html[0].append(datalist);
 
-        // Add options to the data list
-        CustomFonts.list.forEach(font => {
-            const option = document.createElement("option");
-            option.value = font;
-            datalist.append(option);
+            // Add options to the data list
+            CustomFonts.list.forEach(font => {
+                const option = document.createElement("option");
+                option.value = font;
+                datalist.append(option);
+            });
         });
-    });
+    }
 }
