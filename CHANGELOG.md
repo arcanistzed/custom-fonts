@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.1 - 8 Aug 2022
+
+Update manifest for v10 compatibility
+
+### Fixed
+
+* Remove error message for players since they don't have access to the Custom Fonts settings
+* Only apply the UI font if the setting is not empty
+
 ## 0.7.0 - 2 Jul 2022
 
 ### Added
