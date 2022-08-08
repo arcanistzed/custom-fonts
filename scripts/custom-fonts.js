@@ -175,7 +175,7 @@ export default class CustomFonts {
     CustomFonts.list.forEach(async f => {
       try {
         await document.fonts.load(`1em "${f}"`);
-        
+
         dice3d.addColorset({
           font: f,
           visibility: "hidden",
@@ -232,10 +232,21 @@ export default class CustomFonts {
 
   /** Apply the fonts to the CSS variables which control the font of the entire UI */
   static applyUIFonts() {
+	const root = document.querySelector(":root");
+
     const primary = game.settings.get(CustomFonts.ID, "primary");
-    document.querySelector(":root").style.setProperty("--font-primary", `${primary}, "Font Awesome 5 Free"`);
-    const mono = game.settings.get(CustomFonts.ID, "mono");
-    document.querySelector(":root").style.setProperty("--font-mono", mono);
+    if (primary) {
+		root.style.setProperty("--font-primary", `${primary}, "Font Awesome 5 Free"`);
+	} else {
+		root.style.removeProperty("--font-primary");
+	}
+
+	const mono = game.settings.get(CustomFonts.ID, "mono");
+	if (mono) {
+		root.style.setProperty("--font-mono", mono);
+	} else {
+		root.style.removeProperty("--font-mono");
+	}
 
     // Alert if one of the UI fonts is missing
     doOnceReady(() => {
