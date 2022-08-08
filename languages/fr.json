@@ -1,71 +1,71 @@
 {
-    "custom-fonts": {
-        "notifications": {
-            "fontAdded": "La police a été ajouté. Si des dessins nouvellemment créer ne l'affichent pas, essaie de bougé le dessin ou de changé de scène.",
-            "connectionError": "Les polices Google Fonts ne peuvent pas être téléchargez car il y un problème avec la connection au réseau: {error}",
-            "invalidDirectory": "La configuration de le fichier pour les polices est couramment invalide, donc ils n'ont pas pu être téléchargez: {error}",
-            "missingFont": {
-                "message": "La police {font} est actuellement utilisé pour {context}.",
-                "context": {
-                    "ui": "l'interface utilisateur",
-                    "drawing": "un dessin",
-                    "journal": "un journal"
-                }
-            },
-            "libWrapperRequired": "libWrapper doit être activé pour utiliser la fonctionnalité de Dessins plus net.",
-            "presetLoaded": "Préréglage \"{preset}\" appliqué avec succès! Vous pouvez maintenant désactiver le module de préréglage.",
-            "invalidPreset": "Préréglage invalide \"{preset}\": {error}",
-            "dsnFailedToRegister": "Échec de l'enregistrement de la police \"{font}\" avec Dice so Nice: {error}"
-        },
-        "settings": {
-            "downloadCSS": {
-                "name": "Télécharger CSS",
-                "label": "Télécharger le fichier CSS des polices",
-                "hint": "Pour les développeurs et les créateurs de contenu. Cela va télécharger un fichier CSS sur votre ordis contenant le code nécessaire pour que vos polices soient chargés par vos utilisateurs. Voir le README pour plus d'infos."
-            },
-            "fonts": {
-                "name": "Google Fonts",
-                "hint": "Écrire une list de familles de police à téléchargez à partir de Google Fonts, separé par des virgules (,)."
-            },
-            "directory": {
-                "name": "Répertoire de polices locale",
-                "hint": "Tout fichier de formats .otf, .ttf, .woff, ou .woff2 dans cet emplacement sera téléchargé."
-            },
-            "primary": {
-                "name": "Police Principale",
-                "hint": "Entrez le nom de la police que vous voulez utiliser pour tout text primaire de l'interface utilisateur ainsi que la police par défaut pour les dessins."
-            },
-            "mono": {
-                "name": "Police à espacement fixe",
-                "hint": "Entrez le nom de la police que vous voulez utiliser pour tout texte à espacement fixe de l'interface utilisateur. Par défaut, vous verrez cette police dans les zones de texte tels que le formulaire de chat ou l'éditeur de macros."
-            },
-            "sharperTextDrawings": {
-                "name": "Dessins de texte plus net",
-                "hint": "Augmente la résolution des Dessins de texte, enlève leur contour & ombre, et donne assez d'espace au texte pour les glyphes plus grands."
-            },
-            "missingFonts": {
-                "name": "Détecter les polices manquantes",
-                "hint": "Essaye de détecter les polices manquantes qui sont utilisées et affiche une alerte."
-            },
-            "clearPresets": {
-                "name": "Effacer les préréglages",
-                "label": "Effacer",
-                "hint": "Vous aurez besoin de cela si vous désinstallez un préréglage après l'avoir appliqué et il va supprimer la référence à son répertoire. Cela signifie que vous devrez réactiver le préréglage pour profiter des polices incluses à nouveau."
-            },
-            "diceSoNice": {
-                "name": "Intégration avec Dice so Nice",
-                "hint": "Enregistrer toutes les polices avec Dice so Nice. Attention, cela peut causer des problèmes si vous avez beaucoup de polices car DSN impose un limite de temps."
-            },
-            "forcePrimaryFont": {
-                "name": "Force l'utilisation de la police principale",
-                "hint": "Utilisez la police principale que vous avez configuré pour tout. Cela va complètement remplacer les polices de tous les autres modules et du système de jeu."
-            },
-            "dialog": {
-                "googleFontsConsent": {
-                    "title": "Consentement Google Fonts",
-                    "content": "Souhaitez-vous vous connecter aux serveurs Google Fonts afin de télécharger les polices configurées pour ce monde ? Attention, cette connexion fournit à Google votre adresse IP. Certains éléments ne seront pas comme souhaiter par votre maître de jeu, ce qui peut réduire considérablement votre expérience."
-                }
-            }
-        }
-    }
+	"custom-fonts": {
+		"notifications": {
+			"fontAdded": "La police a été ajouté. Si des dessins nouvellemment créer ne l'affichent pas, essaie de bougé le dessin ou de changé de scène.",
+			"connectionError": "Les polices Google Fonts ne peuvent pas être téléchargez car il y un problème avec la connection au réseau: {error}",
+			"invalidDirectory": "La configuration de le fichier pour les polices est couramment invalide, donc ils n'ont pas pu être téléchargez: {error}",
+			"missingFont": {
+				"message": "La police {font} est actuellement utilisé pour {context}.",
+				"context": {
+					"ui": "l'interface utilisateur",
+					"drawing": "un dessin",
+					"journal": "un journal"
+				}
+			},
+			"libWrapperRequired": "libWrapper doit être activé pour utiliser la fonctionnalité de Dessins plus net.",
+			"presetLoaded": "Préréglage \"{preset}\" appliqué avec succès! Vous pouvez maintenant désactiver le module de préréglage.",
+			"invalidPreset": "Préréglage invalide \"{preset}\": {error}",
+			"dsnFailedToRegister": "Échec de l'enregistrement de la police \"{font}\" avec Dice so Nice: {error}"
+		},
+		"settings": {
+			"downloadCSS": {
+				"name": "Télécharger CSS",
+				"label": "Télécharger le fichier CSS des polices",
+				"hint": "Pour les développeurs et les créateurs de contenu. Cela va télécharger un fichier CSS sur votre ordis contenant le code nécessaire pour que vos polices soient chargés par vos utilisateurs. Voir le README pour plus d'infos."
+			},
+			"fonts": {
+				"name": "Google Fonts",
+				"hint": "Écrire une list de familles de police à téléchargez à partir de Google Fonts, separé par des virgules (,)."
+			},
+			"directory": {
+				"name": "Répertoire de polices locale",
+				"hint": "Tout fichier de formats .otf, .ttf, .woff, ou .woff2 dans cet emplacement sera téléchargé."
+			},
+			"primary": {
+				"name": "Police Principale",
+				"hint": "Entrez le nom de la police que vous voulez utiliser pour tout text primaire de l'interface utilisateur ainsi que la police par défaut pour les dessins."
+			},
+			"mono": {
+				"name": "Police à espacement fixe",
+				"hint": "Entrez le nom de la police que vous voulez utiliser pour tout texte à espacement fixe de l'interface utilisateur. Par défaut, vous verrez cette police dans les zones de texte tels que le formulaire de chat ou l'éditeur de macros."
+			},
+			"sharperTextDrawings": {
+				"name": "Dessins de texte plus net",
+				"hint": "Augmente la résolution des Dessins de texte, enlève leur contour & ombre, et donne assez d'espace au texte pour les glyphes plus grands."
+			},
+			"missingFonts": {
+				"name": "Détecter les polices manquantes",
+				"hint": "Essaye de détecter les polices manquantes qui sont utilisées et affiche une alerte."
+			},
+			"clearPresets": {
+				"name": "Effacer les préréglages",
+				"label": "Effacer",
+				"hint": "Vous aurez besoin de cela si vous désinstallez un préréglage après l'avoir appliqué et il va supprimer la référence à son répertoire. Cela signifie que vous devrez réactiver le préréglage pour profiter des polices incluses à nouveau."
+			},
+			"diceSoNice": {
+				"name": "Intégration avec Dice so Nice",
+				"hint": "Enregistrer toutes les polices avec Dice so Nice. Attention, cela peut causer des problèmes si vous avez beaucoup de polices car DSN impose un limite de temps."
+			},
+			"forcePrimaryFont": {
+				"name": "Force l'utilisation de la police principale",
+				"hint": "Utilisez la police principale que vous avez configuré pour tout. Cela va complètement remplacer les polices de tous les autres modules et du système de jeu."
+			},
+			"dialog": {
+				"googleFontsConsent": {
+					"title": "Consentement Google Fonts",
+					"content": "Souhaitez-vous vous connecter aux serveurs Google Fonts afin de télécharger les polices configurées pour ce monde ? Attention, cette connexion fournit à Google votre adresse IP. Certains éléments ne seront pas comme souhaiter par votre maître de jeu, ce qui peut réduire considérablement votre expérience."
+				}
+			}
+		}
+	}
 }

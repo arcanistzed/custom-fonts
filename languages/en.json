@@ -1,71 +1,71 @@
 {
-    "custom-fonts": {
-        "notifications": {
-            "fontAdded": "Font has been loaded. If newly created drawing doesn't display it, try moving it, or changing to other scene and back.",
-            "connectionError": "Fonts from Google Fonts cannot be loaded since there is an issue with the network connection: {error}",
-            "invalidDirectory": "The configuration for the font directory is currently invalid and fonts could not be loaded: {error}",
-            "missingFont": {
-                "message": "Missing font {font} is currently being used in {context}.",
-                "context": {
-                    "ui": "the UI",
-                    "drawing": "a Drawing",
-                    "journal": "a Journal Entry"
-                }
-            },
-            "libWrapperRequired": "libWrapper must be enabled to use the sharper text drawings functionality.",
-            "presetLoaded": "Preset \"{preset}\" succesfully applied! You may now disable the preset module.",
-            "invalidPreset": "Invalid preset \"{preset}\": {error}",
-            "dsnFailedToRegister": "Failed to register font \"{font}\" with Dice so Nice: {error}"
-        },
-        "settings": {
-            "downloadCSS": {
-                "name": "Download CSS",
-                "label": "Download the Custom Fonts CSS file",
-                "hint": "This is for use by Developers and Content Creators. It will download a CSS file to your computer containing the code needed to load your fonts. See the README for more info."
-            },
-            "fonts": {
-                "name": "Google Fonts",
-                "hint": "Font families to load from Google Fonts, separated with commas (,)."
-            },
-            "directory": {
-                "name": "Local font directory",
-                "hint": "Any .otf, .ttf, .woff, or .woff2 files in this directory will be loaded."
-            },
-            "primary": {
-                "name": "Primary font",
-                "hint": "Enter the name of a font which will be used for all major user interface text and as the default font family for drawings."
-            },
-            "mono": {
-                "name": "Monospace font",
-                "hint": "Enter the name of a font which will be used as the monospace font. By default you'll see this font in text areas such as the chat form or macro editor among other places."
-            },
-            "sharperTextDrawings": {
-                "name": "Sharper Text Drawings",
-                "hint": "Increases the resolution of text Drawings, removes their stroke & text shadow, and gives the text adequate padding for larger glyphs."
-            },
-            "missingFonts": {
-                "name": "Detect Missing Fonts",
-                "hint": "Attempt to detect missing fonts which are in use and show a warning."
-            },
-            "clearPresets": {
-                "name": "Clear Presets",
-                "label": "Clear",
-                "hint": "You'll need to use this if you ever uninstall a preset after applying it and it will remove the reference to it's directory. This will mean that you'll have to re-enable the preset to take advantage of the included fonts again."
-            },
-            "diceSoNice": {
-                "name": "Dice so Nice integration",
-                "hint": "Register all fonts with Dice so Nice. Beware that this can cause issues if you have lots of fonts since DSN imposes a time limit."
-            },
-            "forcePrimaryFont": {
-                "name": "Force Primary Font",
-                "hint": "Use the primary font you have configured everywhere. This will completely override any fonts from other modules or your game system."
-            }
-        },
-        "dialog": {
-            "googleFontsConsent": {
-                "title": "Google Fonts consent",
-                "content": "Would you like to connect to Google Fonts' servers in order to download the fonts configured for this world? Beware that this connection will provide Google with your IP address. Refusing this can severely diminish your experience as some things won't look as intended."
-            }
-        }
-    }
+	"custom-fonts": {
+		"notifications": {
+			"fontAdded": "Font has been loaded. If newly created drawing doesn't display it, try moving it, or changing to other scene and back.",
+			"connectionError": "Fonts from Google Fonts cannot be loaded since there is an issue with the network connection: {error}",
+			"invalidDirectory": "The configuration for the font directory is currently invalid and fonts could not be loaded: {error}",
+			"missingFont": {
+				"message": "Missing font {font} is currently being used in {context}.",
+				"context": {
+					"ui": "the UI",
+					"drawing": "a Drawing",
+					"journal": "a Journal Entry"
+				}
+			},
+			"libWrapperRequired": "libWrapper must be enabled to use the sharper text drawings functionality.",
+			"presetLoaded": "Preset \"{preset}\" succesfully applied! You may now disable the preset module.",
+			"invalidPreset": "Invalid preset \"{preset}\": {error}",
+			"dsnFailedToRegister": "Failed to register font \"{font}\" with Dice so Nice: {error}"
+		},
+		"settings": {
+			"downloadCSS": {
+				"name": "Download CSS",
+				"label": "Download the Custom Fonts CSS file",
+				"hint": "This is for use by Developers and Content Creators. It will download a CSS file to your computer containing the code needed to load your fonts. See the README for more info."
+			},
+			"fonts": {
+				"name": "Google Fonts",
+				"hint": "Font families to load from Google Fonts, separated with commas (,)."
+			},
+			"directory": {
+				"name": "Local font directory",
+				"hint": "Any .otf, .ttf, .woff, or .woff2 files in this directory will be loaded."
+			},
+			"primary": {
+				"name": "Primary font",
+				"hint": "Enter the name of a font which will be used for all major user interface text and as the default font family for drawings."
+			},
+			"mono": {
+				"name": "Monospace font",
+				"hint": "Enter the name of a font which will be used as the monospace font. By default you'll see this font in text areas such as the chat form or macro editor among other places."
+			},
+			"sharperTextDrawings": {
+				"name": "Sharper Text Drawings",
+				"hint": "Increases the resolution of text Drawings, removes their stroke & text shadow, and gives the text adequate padding for larger glyphs."
+			},
+			"missingFonts": {
+				"name": "Detect Missing Fonts",
+				"hint": "Attempt to detect missing fonts which are in use and show a warning."
+			},
+			"clearPresets": {
+				"name": "Clear Presets",
+				"label": "Clear",
+				"hint": "You'll need to use this if you ever uninstall a preset after applying it and it will remove the reference to it's directory. This will mean that you'll have to re-enable the preset to take advantage of the included fonts again."
+			},
+			"diceSoNice": {
+				"name": "Dice so Nice integration",
+				"hint": "Register all fonts with Dice so Nice. Beware that this can cause issues if you have lots of fonts since DSN imposes a time limit."
+			},
+			"forcePrimaryFont": {
+				"name": "Force Primary Font",
+				"hint": "Use the primary font you have configured everywhere. This will completely override any fonts from other modules or your game system."
+			}
+		},
+		"dialog": {
+			"googleFontsConsent": {
+				"title": "Google Fonts consent",
+				"content": "Would you like to connect to Google Fonts' servers in order to download the fonts configured for this world? Beware that this connection will provide Google with your IP address. Refusing this can severely diminish your experience as some things won't look as intended."
+			}
+		}
+	}
 }
