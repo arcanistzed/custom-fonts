@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.2 - 8 Aug 2022
+
+Fixed error causing module to not initialize
+
 ## 0.7.1 - 8 Aug 2022
 
 Update manifest for v10 compatibility
