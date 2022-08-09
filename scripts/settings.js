@@ -120,8 +120,9 @@ export default function registerSettings() {
 	});
 
 	// Use data lists for the UI fonts
-	if (game.user.isGM) {
-		Hooks.on("renderSettingsConfig", (_app, html) => {
+
+	Hooks.on("renderSettingsConfig", (_app, html) => {
+		if (game.user.isGM) {
 			// Set the inputs to use the data list
 			const primary = html[0].querySelector("[name='custom-fonts.primary']");
 			const monospace = html[0].querySelector("[name='custom-fonts.mono']");
@@ -139,6 +140,6 @@ export default function registerSettings() {
 				option.value = font;
 				datalist.append(option);
 			});
-		});
-	}
+		}
+	});
 }
