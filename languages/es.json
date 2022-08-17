@@ -1,0 +1,71 @@
+{
+	"custom-fonts": {
+		"notifications": {
+			"fontAdded": "Se cargó la Fuente. Si no se visualiza correctamente, prueba mover el dibujo o cambiar de escena y volver para que se actualice.",
+			"connectionError": "La Fuente de Google Fonts no puede cargarse correctamente debido a un error de conexión de red: {error}",
+			"invalidDirectory": "La configuración del directorio de Fuentes actual es invalida y no se cargaron las Fuentes: {error}",
+			"missingFont": {
+				"message": "Falta la Fuente {font} está actualmente en uso en {context}.",
+				"context": {
+					"ui": "La UI",
+					"drawing": "Un Dibujo",
+					"journal": "Una Entrada del Diario"
+				}
+			},
+			"libWrapperRequired": "libWrapper debe estar habilitado para que la funcionalidad de dibujos de text precisos funcione correctamente.",
+			"presetLoaded": "¡Configuración Básica \"{preset}\" aplicada correctamente! Puedes deshabilitar la Configuración Básica del módulo.",
+			"invalidPreset": "Configuración Básica \"{preset}\" invalida: {error}",
+			"dsnFailedToRegister": "Fallo al registrar la Fuente \"{font}\" en Dice so Nice: {error}"
+		},
+		"settings": {
+			"downloadCSS": {
+				"name": "Descargar CSS",
+				"label": "Descargar el archivo CSS de Fuentes Personalizadas",
+				"hint": "Esto está pensado para ser usado por los Desarrolladores y Creadores de Contenidos. Descarga un archivo CSS en tu computadora que contiene el código necesario para cargar tus fuentes. Leer el README para más información."
+			},
+			"fonts": {
+				"name": "Google Fonts",
+				"hint": "Familia de Fuentes que cargan desde Google Fonts, separadas por comas (,)."
+			},
+			"directory": {
+				"name": "Directorio de Fuentes Local",
+				"hint": "Cualquier archivo .otf, .ttf, .woff, or .woff2 en este directorio será cargado automáticamente."
+			},
+			"primary": {
+				"name": "Fuente Primaria",
+				"hint": "Escribe el nombre de la Fuente que será usada para la mayoría de los textos de la interfaz y como Familia de Fuentes por defecto para los dibujos."
+			},
+			"mono": {
+				"name": "Fuente Monoespaciada",
+				"hint": "Escribe el nombre de la Fuente que será usada como Fuente Monoespaciada. Por defecto verás esta Fuente en sitios como el Chat o el Editor de Macros entre otros."
+			},
+			"sharperTextDrawings": {
+				"name": "Dibujos de Textos Precisos",
+				"hint": "Incrementa la resolución de los Dibujos de Texto, remueve los trazos y sombras del texto y le da el relleno adecuado para glifos más grandes."
+			},
+			"missingFonts": {
+				"name": "Detectar Fuentes Faltantes",
+				"hint": "Intentará detectar Fuentes faltantes y mostrará una advertencia."
+			},
+			"clearPresets": {
+				"name": "Borrar Configuración Básica",
+				"label": "Borrar",
+				"hint": "Utilizarás esta opción si alguna vez desinstalas una Configuración Básica luego de aplicarla y removerá la referencia a su directorio. Esto significa que tendrás que reactivar la Configuración Básica si deseas usar esta Fuente de nuevo. "
+			},
+			"diceSoNice": {
+				"name": "Integración de Dice so Nice",
+				"hint": "Registra todas las Fuentes de Dice so Nice. Precaución, esto puede generar problemas si hay muchas fuentes ya que DSN tiene un limite de tiempo."
+			},
+			"forcePrimaryFont": {
+				"name": "Forzar Fuente Primaria",
+				"hint": " Usar la Fuente Primaria configurada para todo. Esto se impone completamente a las Fuentes de otros módulos de tu sistema de juego."
+			}
+		},
+		"dialog": {
+			"googleFontsConsent": {
+				"title": "Consentimiento de Google Fonts",
+				"content": "¿Deseas conectar al servidor de Google Fonts para descargar las Fuentes configuradas para este mundo? Precaución, esta conexión provee a Google cierta información como tu dirección IP. No hacer esto puede disminuir severamente tu experiencia y algunas cosas no se verán como deberían verse. "
+			}
+		}
+	}
+}
