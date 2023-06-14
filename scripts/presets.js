@@ -3,24 +3,23 @@ import { recursiveFontFileBrowse, doOnceReady } from "./helpers.js";
 
 export default function registerPresets() {
 	return [...game.modules.values()]
-		.filter(m => m.active && m.data.flags["custom-fonts"])
+		.filter(m => m.active && m.flags["custom-fonts"])
 		.map(p => new CustomFontsPreset(p));
 }
 
 class CustomFontsPreset {
 	constructor(module) {
-		this.data = module.data;
-		doOnceReady(() => this.load(this.data.flags["custom-fonts"]));
+		doOnceReady(() => this.load(module.flags["custom-fonts"]));
 	}
 
 	get name() {
-		return this.data.name;
+		return this.id;
 	}
 	get title() {
-		return this.data.title;
+		return this.title;
 	}
 	get path() {
-		return `modules/${this.data.name}/`;
+		return `modules/${this.id}/`;
 	}
 
 	findNewFonts(fonts, existing) {
