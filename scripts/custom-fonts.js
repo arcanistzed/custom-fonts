@@ -185,7 +185,10 @@ export default class CustomFonts {
 	static config() {
 		// List the fonts and then add each one to Foundry's list of font families if it isn't there
 		CustomFonts.list.forEach(f => {
-			if (!CONFIG.fontDefinitions.includes(f)) CONFIG.fontDefinitions.push(f);
+		if (!CONFIG.fontDefinitions[f]) CONFIG.fontDefinitions[f] = {
+														  editor: true,
+														  fonts: []
+														};
 		});
 
 		// Use primary font family for Drawings
